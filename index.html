@@ -318,6 +318,56 @@ html.header-on-hero .site-nav__cta:hover {
   }
 }
 
+/* Mobile: floating menu (shown only over hero) */
+.nav-mobile-toggle {
+  position: fixed;
+  top: max(10px, env(safe-area-inset-top));
+  right: max(12px, env(safe-area-inset-right));
+  z-index: 260;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  background: rgba(5, 12, 28, 0.52);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: #fff;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.nav-mobile-toggle:active {
+  transform: scale(0.96);
+}
+
+.nav-mobile-close {
+  display: none;
+  position: absolute;
+  top: max(6px, env(safe-area-inset-top));
+  right: max(10px, env(safe-area-inset-right));
+  z-index: 5;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.92);
+  color: #0f172a;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+html.nav-mobile-open .nav-mobile-close {
+  display: inline-flex;
+}
+
 /* ——— Hero ——— */
 .hero {
   position: relative;
@@ -484,6 +534,7 @@ html.header-on-hero .site-nav__cta:hover {
   padding: 12px 4px 20px;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
   scrollbar-width: none;
 }
 
@@ -1166,7 +1217,7 @@ a.hero__explore:hover {
   scroll-snap-type: x mandatory;
   scroll-padding-inline: var(--pad-x);
   -webkit-overflow-scrolling: touch;
-  touch-action: pan-x;
+  overscroll-behavior-x: contain;
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
 }
@@ -2684,18 +2735,73 @@ a.hero__explore:hover {
   .site-header {
     background: rgba(251, 251, 253, 0.92);
     border-bottom-color: rgba(15, 23, 42, 0.1);
+    transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s ease;
   }
 
   html.header-on-hero .site-header {
     background: rgba(5, 12, 28, 0.62);
   }
 
+  html.header-on-hero:not(.nav-mobile-open) .site-header {
+    transform: translateY(-108%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  html:not(.header-on-hero) .site-header {
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  html.nav-mobile-open .site-header {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    position: fixed;
+    inset: 0;
+    bottom: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-y: auto;
+    z-index: 240;
+    border-bottom: none;
+    background: rgba(251, 251, 253, 0.98);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+  }
+
+  html.nav-mobile-open.header-on-hero .site-header {
+    background: rgba(5, 12, 28, 0.96);
+  }
+
+  html.header-on-hero:not(.nav-mobile-open) .nav-mobile-toggle {
+    display: inline-flex;
+  }
+
+  html.nav-mobile-open .nav-mobile-toggle {
+    display: none !important;
+  }
+
+  html.nav-mobile-open.header-on-hero .nav-mobile-close {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.28);
+    color: #fff;
+  }
+
   .site-header__inner {
+    position: relative;
     flex-direction: column;
     align-items: stretch;
     gap: 6px;
     padding-top: max(8px, env(safe-area-inset-top));
     padding-bottom: 6px;
+  }
+
+  html.nav-mobile-open .site-header__inner {
+    min-height: min(100vh, 100dvh);
+    padding-top: max(52px, calc(env(safe-area-inset-top) + 36px));
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
   }
 
   .site-logo {
@@ -2758,13 +2864,44 @@ a.hero__explore:hover {
     padding-right: 10px;
   }
 
-  .hero,
-  .hero--slider {
-    padding-top: calc(122px + env(safe-area-inset-top));
+  html.nav-mobile-open .site-nav {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    overflow: visible;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 8px 0 20px;
+    gap: 10px;
+    scroll-snap-type: none;
+    mask-image: none;
+    -webkit-mask-image: none;
   }
 
-  .hero--foxico.hero--slider {
-    padding-top: calc(122px + env(safe-area-inset-top));
+  html.nav-mobile-open .site-nav__link,
+  html.nav-mobile-open .site-nav__cta {
+    scroll-snap-align: none;
+    width: 100%;
+    justify-content: center;
+  }
+
+  html.header-on-hero:not(.nav-mobile-open) .hero,
+  html.header-on-hero:not(.nav-mobile-open) .hero--slider,
+  html.header-on-hero:not(.nav-mobile-open) .hero--foxico.hero--slider {
+    padding-top: calc(12px + env(safe-area-inset-top));
+  }
+
+  html:not(.header-on-hero) .hero,
+  html:not(.header-on-hero) .hero--slider,
+  html:not(.header-on-hero) .hero--foxico.hero--slider {
+    padding-top: calc(108px + env(safe-area-inset-top));
+  }
+
+  html.nav-mobile-open .hero,
+  html.nav-mobile-open .hero--slider,
+  html.nav-mobile-open .hero--foxico.hero--slider {
+    padding-top: calc(12px + env(safe-area-inset-top));
   }
 
   .hero--foxico .hero__title {
@@ -2862,6 +2999,14 @@ a.hero__explore:hover {
 
   .sharing-panel__lead {
     font-size: 17px;
+  }
+
+  .h-scroll {
+    scroll-snap-type: x proximity;
+  }
+
+  .hero-carousel__track {
+    scroll-snap-type: x proximity;
   }
 }
 
@@ -3363,6 +3508,14 @@ a.hero__explore:hover {
     transform: none;
   }
 
+  .site-header {
+    transition: none !important;
+  }
+
+  .nav-mobile-toggle:active {
+    transform: none;
+  }
+
   .blob,
   .insight-band__blob,
   .hero__mesh,
@@ -3440,6 +3593,7 @@ a.hero__explore:hover {
 
   <header class="site-header" id="top">
     <div class="site-header__inner">
+      <button type="button" class="nav-mobile-close" id="nav-mobile-close" aria-label="Close menu">×</button>
       <a class="site-logo" href="#hero" aria-label="SeaHorse Langkawi home">
         <img class="site-logo__mark" src="image/logo.svg" alt="SeaHorse Langkawi logo">
         <span>SeaHorse Langkawi</span>
@@ -3457,6 +3611,10 @@ a.hero__explore:hover {
       </nav>
     </div>
   </header>
+
+  <button type="button" class="nav-mobile-toggle" id="nav-mobile-toggle" aria-controls="top" aria-expanded="false" aria-label="Open menu">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+  </button>
 
   <main id="main">
     <section class="hero hero--slider hero--foxico" id="hero" data-hero-slider>
@@ -3971,6 +4129,60 @@ a.hero__explore:hover {
 
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
+
+  var navToggle = document.getElementById("nav-mobile-toggle");
+  var navClose = document.getElementById("nav-mobile-close");
+  var htmlEl = document.documentElement;
+
+  function setMobileNav(open) {
+    htmlEl.classList.toggle("nav-mobile-open", !!open);
+    document.body.style.overflow = open ? "hidden" : "";
+    if (navToggle) navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+
+  function closeMobileNavIfWide() {
+    if (window.innerWidth > 700) setMobileNav(false);
+  }
+
+  if (navToggle) {
+    navToggle.addEventListener("click", function () {
+      setMobileNav(true);
+    });
+  }
+
+  if (navClose) {
+    navClose.addEventListener("click", function () {
+      setMobileNav(false);
+    });
+  }
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") setMobileNav(false);
+  });
+
+  window.addEventListener(
+    "resize",
+    function () {
+      closeMobileNavIfWide();
+    },
+    { passive: true }
+  );
+
+  document.querySelectorAll(".site-nav a").forEach(function (a) {
+    a.addEventListener("click", function () {
+      if (window.innerWidth <= 700) setMobileNav(false);
+    });
+  });
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (window.innerWidth <= 700 && !htmlEl.classList.contains("header-on-hero")) {
+        setMobileNav(false);
+      }
+    },
+    { passive: true }
+  );
 
   var sections = [
     { id: "hero", href: "#hero" },
