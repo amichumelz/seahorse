@@ -1,0 +1,4327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Affordable mangrove tours in Langkawi — Kilim Geopark, snorkeling, island hopping. Departing from Tanjung Rhu." />
+  <title>SeaHorse Langkawi</title>
+  <style>
+:root {
+  --bg: #fbfbfd;
+  --bg-alt: #f5f5f7;
+  --surface: #ffffff;
+  --text: #1d1d1f;
+  --text-soft: #6e6e73;
+  --link: #0066cc;
+  --link-hover: #004499;
+  --line: rgba(0, 0, 0, 0.08);
+  --header-blur: saturate(180%) blur(20px);
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 12px 40px rgba(0, 0, 0, 0.08);
+  --max: 1200px;
+  --pad-x: clamp(20px, 5vw, 48px);
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.47059;
+  letter-spacing: -0.022em;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 540px at 10% -10%, rgba(14, 165, 233, 0.1), transparent 55%),
+    radial-gradient(1000px 460px at 95% 8%, rgba(99, 102, 241, 0.08), transparent 58%),
+    var(--bg);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+main {
+  position: relative;
+  isolation: isolate;
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(700px 320px at 15% 18%, rgba(2, 132, 199, 0.07), transparent 70%),
+    radial-gradient(620px 280px at 85% 52%, rgba(79, 70, 229, 0.06), transparent 72%);
+}
+
+@media (min-width: 735px) {
+  body {
+    font-size: 19px;
+    letter-spacing: -0.021em;
+  }
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip:focus {
+  left: 16px;
+  top: 16px;
+  width: auto;
+  height: auto;
+  padding: 12px 16px;
+  background: var(--surface);
+  border-radius: 12px;
+  z-index: 1000;
+  box-shadow: var(--shadow-soft);
+}
+
+/* ——— Header ——— */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: rgba(251, 251, 253, 0.72);
+  -webkit-backdrop-filter: var(--header-blur);
+  backdrop-filter: var(--header-blur);
+  border-bottom: 1px solid var(--line);
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.site-header--scrolled {
+  background: rgba(251, 251, 253, 0.86);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+/* Header over hero (Foxico-style glass bar) */
+html.header-on-hero .site-header {
+  background: rgba(5, 12, 28, 0.42);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  backdrop-filter: blur(16px) saturate(160%);
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+  box-shadow: none;
+}
+
+html.header-on-hero .site-logo {
+  color: #fff;
+  animation: none;
+}
+
+html.header-on-hero .site-logo__mark {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+html.header-on-hero .site-nav__link {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+html.header-on-hero .site-nav__link:hover {
+  color: #fff;
+}
+
+html.header-on-hero .site-nav__link--active {
+  color: #fff;
+}
+
+html.header-on-hero .site-nav__link--active::after {
+  background: #fff;
+}
+
+html.header-on-hero .site-nav__link--icon {
+  color: #fff;
+}
+
+html.header-on-hero .site-nav__cta {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+html.header-on-hero .site-nav__cta:hover {
+  background: rgba(255, 255, 255, 0.28);
+  color: #fff !important;
+}
+
+.site-header__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: max(10px, env(safe-area-inset-top)) var(--pad-x) 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.site-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  text-decoration: none;
+  animation: logoIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) both, logoPulse 4s ease-in-out 0.7s infinite;
+}
+
+.site-logo__mark {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes logoIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes logoPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.82;
+  }
+}
+
+.site-logo:hover {
+  text-decoration: none;
+  opacity: 0.75;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 2vw, 28px);
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.site-nav__link {
+  position: relative;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-soft);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-nav__link:hover {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.site-nav__link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 2px;
+  width: 100%;
+  max-width: 28px;
+  height: 2px;
+  border-radius: 2px;
+  background: #0071e3;
+  transform: translateX(-50%) scaleX(0);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  pointer-events: none;
+}
+
+.site-nav__link--active {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.site-nav__link--active::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.site-nav__link--icon {
+  display: flex;
+  align-items: center;
+  color: var(--text);
+  opacity: 0.85;
+}
+
+.site-nav__link--icon:hover {
+  opacity: 1;
+}
+
+.site-nav__link--icon::after {
+  display: none;
+}
+
+.site-nav__cta {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 980px;
+  background: var(--text);
+  color: #f5f5f7 !important;
+  text-decoration: none !important;
+}
+
+.site-nav__cta:hover {
+  background: #333;
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+@media (min-width: 735px) {
+  .site-nav__link {
+    font-size: 14px;
+  }
+
+  .site-nav__cta {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+
+/* ——— Hero ——— */
+.hero {
+  position: relative;
+  isolation: isolate;
+  min-height: min(88vh, 820px);
+  padding: calc(72px + clamp(48px, 12vh, 120px)) var(--pad-x) clamp(64px, 10vh, 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Hero: full-bleed photo slider + destination cards (bg syncs with slide) */
+.hero.hero--slider {
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+.hero--slider {
+  padding: calc(72px + clamp(40px, 10vh, 100px)) var(--pad-x) clamp(48px, 8vh, 80px);
+  min-height: min(92vh, 880px);
+  align-items: center;
+}
+
+.hero--slider .hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero__bg-layer {
+  position: absolute;
+  inset: -4%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.05s ease-in-out;
+  pointer-events: none;
+}
+
+.hero__bg-layer.is-active {
+  opacity: 1;
+}
+
+.hero__dim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    rgba(5, 12, 28, 0.88) 0%,
+    rgba(5, 12, 28, 0.42) 42%,
+    rgba(5, 12, 28, 0.18) 72%,
+    rgba(5, 12, 28, 0.35) 100%
+  );
+}
+
+.hero--slider .hero__shell {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(28px, 5vw, 44px);
+  align-items: center;
+  text-align: left;
+}
+
+@media (min-width: 960px) {
+  .hero--slider .hero__shell {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    gap: clamp(24px, 4vw, 56px);
+    align-items: center;
+  }
+}
+
+.hero--slider .hero__copy {
+  max-width: 560px;
+}
+
+.hero--slider .hero__eyebrow {
+  color: rgba(255, 255, 255, 0.72);
+  letter-spacing: 0.14em;
+}
+
+.hero--slider .hero__title {
+  color: #fff;
+  font-size: clamp(40px, 8vw, 78px);
+  margin-bottom: 16px;
+  line-height: 1.05;
+}
+
+.hero--slider .hero__title-soft {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.hero--slider .hero__lead {
+  color: rgba(255, 255, 255, 0.88);
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 52ch;
+}
+
+.hero--slider .hero__actions {
+  justify-content: flex-start;
+  margin-top: 8px;
+}
+
+.hero--slider .btn--solid {
+  animation: none;
+}
+
+.hero--slider .btn--ghost {
+  color: #fff !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+}
+
+.hero--slider .btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff !important;
+}
+
+.hero--slider .hero__actions .btn {
+  border-radius: 0;
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+.hero__slide-meta {
+  margin-top: clamp(20px, 4vw, 32px);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero__slide-count {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.hero__slide-count strong {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 15px;
+}
+
+.hero-carousel {
+  position: relative;
+  width: 100%;
+}
+
+.hero-carousel__track {
+  display: flex;
+  gap: clamp(12px, 2vw, 20px);
+  overflow-x: auto;
+  overflow-y: visible;
+  padding: 12px 4px 20px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.hero-carousel__track::-webkit-scrollbar {
+  display: none;
+}
+
+.hero-carousel__card {
+  flex: 0 0 clamp(132px, 30vw, 180px);
+  scroll-snap-align: start;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  overflow: visible;
+  cursor: pointer;
+  background: transparent;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 960px) {
+  .hero-carousel__card {
+    flex: 0 0 clamp(180px, 18vw, 240px);
+  }
+}
+
+.hero-carousel__card.is-active {
+  transform: translateY(-6px);
+}
+
+.hero-carousel__card:not(.is-active) {
+  opacity: 0.82;
+}
+
+.hero-carousel__card:not(.is-active):hover {
+  opacity: 1;
+}
+
+.hero-carousel__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.12);
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.hero-carousel__card.is-active .hero-carousel__media {
+  border-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.16);
+}
+
+.hero-carousel__card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0;
+  vertical-align: top;
+}
+
+.hero-carousel__label {
+  display: block;
+  padding: 0 2px 6px;
+  font-size: clamp(12px, 1.6vw, 15px);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: left;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.35);
+  background: none;
+}
+
+.hero-carousel__controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.hero-carousel__nav {
+  width: 44px;
+  height: 44px;
+  border-radius: 0;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.15s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.hero-carousel__nav:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-1px);
+}
+
+/* Foxico-style hero (rail, explore CTA, circular nav, bookmark row) */
+.hero--foxico.hero--slider {
+  padding-top: calc(72px + clamp(16px, 4vh, 48px));
+  padding-bottom: clamp(32px, 6vh, 72px);
+}
+
+.hero--foxico .hero__dim {
+  background: linear-gradient(
+    95deg,
+    rgba(5, 12, 28, 0.84) 0%,
+    rgba(5, 12, 28, 0.4) 46%,
+    rgba(5, 12, 28, 0.14) 100%
+  );
+}
+
+@media (min-width: 960px) {
+  .hero--foxico .hero__shell {
+    grid-template-columns: 52px minmax(0, 1.12fr) minmax(0, 0.88fr);
+    gap: clamp(20px, 3vw, 52px);
+    align-items: center;
+  }
+}
+
+.hero__rail {
+  display: none;
+  align-self: center;
+}
+
+@media (min-width: 960px) {
+  .hero__rail {
+    display: block;
+  }
+}
+
+.hero__rail-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 14px;
+  min-height: min(36vh, 260px);
+}
+
+.hero__rail-line {
+  width: 1px;
+  flex-shrink: 0;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.32) 14%,
+    rgba(255, 255, 255, 0.32) 86%,
+    transparent 100%
+  );
+}
+
+.hero__rail-stops {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0 8px;
+}
+
+.hero__rail-stop {
+  position: relative;
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.42);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.28s ease, height 0.28s ease, box-shadow 0.28s ease, background 0.28s ease;
+}
+
+.hero__rail-stop-num {
+  opacity: 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #fff;
+  line-height: 1;
+  transition: opacity 0.2s ease;
+}
+
+.hero__rail-stop.is-active {
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.92);
+}
+
+.hero__rail-stop.is-active .hero__rail-stop-num {
+  opacity: 1;
+}
+
+.hero__copyBottom {
+  margin-top: clamp(22px, 3.5vw, 36px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(20px, 3.5vh, 36px);
+}
+
+.hero__explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 14px;
+  background: #2563eb;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.38);
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+a.hero__explore:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  text-decoration: none;
+  color: #fff;
+}
+
+.hero__pager {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.hero__pager #hero-slide-current {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 15px;
+}
+
+.hero__pager-sep {
+  margin: 0 3px;
+  opacity: 0.55;
+}
+
+.hero--foxico .hero__title {
+  font-size: clamp(44px, 7.2vw, 92px);
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 0.98;
+}
+
+.hero-card__head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+}
+
+.hero-card__dots {
+  display: flex;
+  gap: 6px;
+  padding: 0 2px 2px;
+}
+
+.hero-card__dots span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.28);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-card__dots span.is-active {
+  background: #fff;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25);
+}
+
+.hero-card__bookmark {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.1);
+}
+
+.hero--foxico .hero-carousel {
+  padding-bottom: 58px;
+}
+
+.hero--foxico .hero-carousel__controls {
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+  left: auto;
+  margin-top: 0;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.hero--foxico .hero-carousel__nav {
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.14);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.hero--foxico .hero-carousel__card.is-active {
+  transform: none;
+}
+
+.hero--foxico .hero-carousel__media {
+  box-shadow: 0 8px 26px rgba(15, 23, 42, 0.1);
+}
+
+.hero--foxico .hero-carousel__card.is-active .hero-carousel__media {
+  border-color: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12);
+}
+
+@media (max-width: 959px) {
+  .hero--slider .hero__shell {
+    text-align: center;
+  }
+
+  .hero--slider .hero__copy {
+    max-width: none;
+  }
+
+  .hero--slider .hero__lead {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero--slider .hero__actions {
+    justify-content: center;
+  }
+
+  .hero__slide-meta {
+    justify-content: center;
+  }
+
+  .hero-carousel__controls {
+    justify-content: center;
+  }
+
+  .hero--foxico .hero__copyBottom {
+    align-items: center;
+  }
+
+  .hero--foxico .hero-card__head {
+    align-items: center;
+  }
+
+  .hero--foxico .hero-carousel__controls {
+    position: static;
+    margin-top: 10px;
+    justify-content: center;
+  }
+
+  .hero--foxico .hero-carousel {
+    padding-bottom: 12px;
+  }
+}
+
+.hero__glow {
+  position: absolute;
+  inset: -20% -10% auto;
+  height: 70%;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0, 122, 255, 0.18), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(90, 200, 250, 0.12), transparent 50%),
+    radial-gradient(ellipse 50% 40% at 15% 30%, rgba(175, 82, 222, 0.08), transparent 45%);
+  pointer-events: none;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.hero__eyebrow {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-soft);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hero__title {
+  margin: 0 0 20px;
+  font-size: clamp(40px, 7vw, 80px);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.hero__title-soft {
+  color: var(--text-soft);
+  font-weight: 500;
+}
+
+.hero__lead {
+  margin: 0 auto 36px;
+  max-width: 640px;
+  font-size: clamp(17px, 2.2vw, 22px);
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text-soft);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  padding: 14px 28px;
+  font-size: 17px;
+  font-weight: 400;
+  border-radius: 980px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none !important;
+  transition: transform 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+}
+
+.btn:hover {
+  text-decoration: none !important;
+}
+
+.btn--solid {
+  background: #0071e3;
+  color: #fff !important;
+  animation: btnPulse 2.8s ease-in-out infinite;
+}
+
+.btn--solid:hover {
+  background: #0077ed;
+  color: #fff !important;
+}
+
+.btn--ghost {
+  background: transparent;
+  color: #0071e3 !important;
+  box-shadow: inset 0 0 0 1px rgba(0, 113, 227, 0.35);
+}
+
+.btn--ghost:hover {
+  background: rgba(0, 113, 227, 0.06);
+  color: #0071e3 !important;
+}
+
+.btn--sm {
+  padding: 10px 22px;
+  font-size: 15px;
+}
+
+/* ——— Notice ——— */
+.notice {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.notice__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 24px var(--pad-x);
+  border-radius: 0 0 26px 26px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.35));
+}
+
+.notice p {
+  margin: 0;
+  font-size: 15px;
+  color: var(--text-soft);
+  max-width: 72ch;
+}
+
+.notice strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ——— Bands & horizontal scroll ——— */
+.band {
+  position: relative;
+  isolation: isolate;
+  padding: clamp(56px, 10vw, 100px) 0 clamp(72px, 12vw, 120px);
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.band::before {
+  content: "";
+  position: absolute;
+  width: min(44vw, 520px);
+  height: min(44vw, 520px);
+  border-radius: 50%;
+  right: -140px;
+  top: 12%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.14), transparent 68%);
+  filter: blur(1px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.band--alt {
+  background: var(--bg-alt);
+}
+
+/* ——— Sharing section: video background ——— */
+.band--sharing-video.band--alt {
+  background: #030712;
+}
+
+.band--sharing-video {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-top: none;
+}
+
+.band--sharing-video::before {
+  display: none;
+}
+
+.band-sharing__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.band-sharing__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.58) 0%,
+    rgba(0, 0, 0, 0.42) 42%,
+    rgba(0, 0, 0, 0.62) 100%
+  );
+}
+
+.band--sharing-video .band__title {
+  color: #f5f5f7;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+}
+
+.band--sharing-video .band__subtitle {
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
+}
+
+/* Sharing header: no light “glass” card (it washed out the white text on video) */
+.band--sharing-video .band__intro {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.band-sharing__inner {
+  position: relative;
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .band-sharing__video {
+    display: none;
+  }
+
+  .band--sharing-video.band--alt {
+    background: #0c0c0e;
+  }
+}
+
+.band__intro {
+  max-width: var(--max);
+  margin: 0 auto 40px;
+  padding: clamp(20px, 2.8vw, 28px) var(--pad-x);
+  text-align: center;
+  border-radius: 28px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.88), rgba(245, 247, 251, 0.78));
+  box-shadow:
+    0 16px 42px rgba(15, 23, 42, 0.08),
+    0 1px 0 rgba(255, 255, 255, 0.72) inset;
+}
+
+.band__intro--row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  text-align: left;
+}
+
+@media (max-width: 640px) {
+  .band__intro--row {
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .band__intro {
+    border-radius: 22px;
+    padding: 18px 16px;
+  }
+}
+
+.band__title {
+  margin: 0 0 8px;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+}
+
+.band__subtitle {
+  margin: 0;
+  font-size: 19px;
+  color: var(--text-soft);
+  font-weight: 400;
+}
+
+/* Full-bleed horizontal strip */
+.h-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 8px var(--pad-x) clamp(40px, 8vw, 64px);
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--pad-x);
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.h-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.h-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 99px;
+}
+
+.h-scroll:focus {
+  outline: none;
+}
+
+.h-scroll:focus-visible {
+  outline: 2px solid #0071e3;
+  outline-offset: 4px;
+}
+
+/* Desktop: show as centered row without forced scroll */
+@media (min-width: 1100px) {
+  .h-scroll {
+    max-width: var(--max);
+    margin: 0 auto;
+    flex-wrap: nowrap;
+    justify-content: center;
+    overflow-x: visible;
+    padding-bottom: 8px;
+    scroll-snap-type: none;
+  }
+
+  .h-scroll--dense {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 24px;
+    row-gap: 28px;
+  }
+}
+
+/* Cards */
+.card {
+  flex: 0 0 min(360px, 82vw);
+  scroll-snap-align: start;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+@media (min-width: 1100px) {
+  .card--a {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: 380px;
+  }
+
+  .h-scroll--dense .card--b {
+    flex: 1 1 calc(33.333% - 16px);
+    min-width: 300px;
+    max-width: 380px;
+    scroll-snap-align: none;
+  }
+}
+
+@media (min-width: 1400px) {
+  .h-scroll--dense .card--b {
+    max-width: 360px;
+  }
+}
+
+.card__art {
+  height: 160px;
+  width: 100%;
+}
+
+.card__art--1 {
+  background: linear-gradient(135deg, #0c4a6e 0%, #0ea5e9 40%, #bae6fd 100%);
+}
+
+.card__art--2 {
+  background: linear-gradient(135deg, #134e4a 0%, #2dd4bf 45%, #ccfbf1 100%);
+}
+
+.card__art--3 {
+  background: linear-gradient(135deg, #1e3a5f 0%, #3b82f6 50%, #93c5fd 100%);
+}
+
+.card__art--4 {
+  background: linear-gradient(135deg, #0369a1 0%, #38bdf8 50%, #e0f2fe 100%);
+}
+
+.card__art--5 {
+  background: linear-gradient(135deg, #422006 0%, #b45309 45%, #fde68a 100%);
+}
+
+.card__art--6 {
+  background: linear-gradient(135deg, #172554 0%, #2563eb 50%, #bfdbfe 100%);
+}
+
+.card__art--7 {
+  background: linear-gradient(135deg, #312e81 0%, #6366f1 45%, #c7d2fe 100%);
+}
+
+.card__art--8 {
+  background: linear-gradient(135deg, #14532d 0%, #22c55e 45%, #bbf7d0 100%);
+}
+
+.card__body {
+  padding: 28px 28px 32px;
+}
+
+.card__tag {
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.card__name {
+  margin: 0 0 6px;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+
+.card__subnote {
+  margin: -8px 0 12px;
+  font-size: 14px;
+  color: var(--text-soft);
+}
+
+.card__meta {
+  margin: 0 0 16px;
+  font-size: 15px;
+  color: var(--text-soft);
+}
+
+.card__price {
+  margin: 0 0 20px;
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.card__list {
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+  font-size: 15px;
+  color: var(--text-soft);
+  line-height: 1.55;
+}
+
+.card__list li {
+  position: relative;
+  padding-left: 1.1em;
+  margin-bottom: 8px;
+}
+
+.card__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--text);
+  opacity: 0.25;
+}
+
+.card__note {
+  margin: 0 0 20px;
+  font-size: 14px;
+  color: var(--text-soft);
+}
+
+.card__hint {
+  margin: 0 0 16px;
+  font-size: 14px;
+  color: var(--text-soft);
+}
+
+.card__hint a {
+  font-weight: 500;
+}
+
+.card__link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 17px;
+  font-weight: 400;
+  color: #0071e3 !important;
+  text-decoration: none !important;
+}
+
+.card__link::after {
+  content: " ›";
+  font-size: 1.1em;
+  opacity: 0.8;
+}
+
+.card__link:hover {
+  text-decoration: underline !important;
+}
+
+/* ——— Package cards (listing style) ——— */
+.band--packages {
+  background: #ececee;
+}
+
+.band--packages .band__intro {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.pkg-toolbar {
+  max-width: var(--max);
+  margin: 0 auto 16px;
+  padding: 0 var(--pad-x);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.pkg-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pkg-filters__pill {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #fff;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.pkg-filters__pill:hover {
+  border-color: rgba(0, 0, 0, 0.22);
+}
+
+.pkg-filters__pill.is-active {
+  background: #1d1d1f;
+  color: #fff;
+  border-color: #1d1d1f;
+}
+
+.card--package {
+  border-radius: 22px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+}
+
+.band--packages .card__art {
+  height: 220px;
+  border-radius: 0;
+}
+
+.band--packages .card--package .card__art .card__photo {
+  border-radius: 0;
+}
+
+.card__headrow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.card--package .card__name {
+  font-size: clamp(18px, 2.4vw, 21px);
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+}
+
+.card__rating {
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.card__rating span {
+  color: #ca8a04;
+}
+
+.card__region {
+  margin: 0 0 14px;
+  font-size: 14px;
+  color: var(--text-soft);
+  line-height: 1.35;
+}
+
+.card__footerrow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.card__hintDate {
+  font-size: 13px;
+  color: #8e8e93;
+}
+
+.card__priceblock {
+  text-align: right;
+}
+
+.card--package .card__price {
+  display: inline;
+  font-size: clamp(22px, 4vw, 26px);
+  margin: 0;
+}
+
+.card__priceSuffix {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-soft);
+  margin-left: 2px;
+}
+
+.btn--view {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  border: none;
+  border-radius: 999px;
+  background: #1d1d1f;
+  color: #fff !important;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.btn--view:hover {
+  background: #333;
+  transform: scale(1.01);
+}
+
+.card__body--package {
+  padding-left: 22px;
+  padding-right: 22px;
+  padding-bottom: 22px;
+  padding-top: 20px;
+}
+
+.card--pop3d .card__body.card__body--package {
+  padding-top: clamp(44px, 11vw, 76px);
+}
+
+.card--package.is-filtered-out {
+  display: none !important;
+}
+
+/* Package detail modal */
+.pkg-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: env(safe-area-inset-top, 0) 16px env(safe-area-inset-bottom, 0);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.pkg-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.pkg-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.pkg-modal__panel {
+  position: relative;
+  width: min(100%, 480px);
+  max-height: min(88vh, 720px);
+  overflow-y: auto;
+  margin-bottom: 12px;
+  padding: clamp(22px, 4vw, 28px);
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.22);
+  z-index: 1;
+}
+
+.pkg-modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.06);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.pkg-modal__close:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.pkg-modal__title {
+  margin: 0 36px 8px 0;
+  font-size: clamp(22px, 4vw, 26px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.pkg-modal__meta {
+  margin: 0 0 20px;
+  font-size: 15px;
+  color: var(--text-soft);
+}
+
+.pkg-modal__cols {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+@media (min-width: 520px) {
+  .pkg-modal__cols {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.pkg-modal__cols h4 {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.pkg-modal__cols ul {
+  margin: 0;
+  padding-left: 1.15em;
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.pkg-modal__cols li {
+  margin-bottom: 6px;
+}
+
+.pkg-modal__form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+@media (min-width: 520px) {
+  .pkg-modal__form {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pkg-modal__field label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.pkg-modal__field input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 16px;
+  font-family: inherit;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 14px;
+  background: #fafafa;
+}
+
+.pkg-modal__field input:focus {
+  outline: 2px solid #0071e3;
+  outline-offset: 0;
+  border-color: transparent;
+  background: #fff;
+}
+
+.btn--book {
+  display: block;
+  width: 100%;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 999px;
+  font-size: 17px;
+  font-weight: 600;
+  font-family: inherit;
+  background: #1d1d1f;
+  color: #fff !important;
+  text-align: center;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+.btn--book:hover {
+  background: #333;
+}
+
+@media (min-width: 640px) {
+  .pkg-modal {
+    align-items: center;
+  }
+}
+
+/* ——— Mangrove sharing: premium inclusions panel ——— */
+.sharing-panel {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+
+.sharing-panel__surface {
+  position: relative;
+  border-radius: 32px;
+  overflow: hidden;
+  background: linear-gradient(155deg, #ffffff 0%, #f8fafc 42%, #eef2f7 100%);
+  border: 1px solid rgba(15, 23, 42, 0.09);
+  box-shadow:
+    0 4px 0 rgba(255, 255, 255, 0.75) inset,
+    0 32px 90px rgba(0, 0, 0, 0.18),
+    0 12px 32px rgba(15, 23, 42, 0.08);
+}
+
+.sharing-panel__surface::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0ea5e9, #6366f1, #14b8a6);
+  z-index: 1;
+}
+
+.sharing-panel__head {
+  position: relative;
+  z-index: 2;
+  padding: clamp(28px, 4vw, 40px) clamp(24px, 4vw, 44px) 8px;
+  text-align: center;
+}
+
+.sharing-panel__eyebrow {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #0071e3;
+}
+
+.sharing-panel__headline {
+  margin: 0 0 12px;
+  font-size: clamp(26px, 3.8vw, 34px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+
+.sharing-panel__lead {
+  margin: 0 auto;
+  max-width: 38ch;
+  font-size: clamp(17px, 2.2vw, 20px);
+  line-height: 1.45;
+  color: var(--text-soft);
+}
+
+.sharing-panel__grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  padding: clamp(20px, 3vw, 28px) 0 clamp(28px, 4vw, 36px);
+}
+
+.sharing-col {
+  padding: clamp(20px, 3vw, 32px) clamp(20px, 3vw, 32px);
+  border-right: 1px solid rgba(15, 23, 42, 0.08);
+  position: relative;
+}
+
+.sharing-col:last-child {
+  border-right: none;
+}
+
+.sharing-col__num {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  color: rgba(0, 113, 227, 0.07);
+  pointer-events: none;
+  user-select: none;
+}
+
+.sharing-col__label {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.sharing-col__title {
+  margin: 0 0 16px;
+  font-size: clamp(19px, 2.4vw, 23px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  padding-right: 36px;
+}
+
+.sharing-col__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: clamp(16px, 1.9vw, 18px);
+  line-height: 1.45;
+  color: var(--text-soft);
+}
+
+.sharing-col__list li {
+  position: relative;
+  padding-left: 1.1em;
+  margin-bottom: 12px;
+}
+
+.sharing-col__list li:last-child {
+  margin-bottom: 0;
+}
+
+.sharing-col__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.52em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0071e3, #0ea5e9);
+}
+
+.sharing-panel__foot {
+  position: relative;
+  z-index: 2;
+  margin: 0 clamp(24px, 4vw, 44px) clamp(24px, 4vw, 36px);
+  padding: 18px 22px;
+  border-radius: 16px;
+  background: rgba(0, 113, 227, 0.06);
+  border: 1px solid rgba(0, 113, 227, 0.12);
+  font-size: clamp(14px, 1.6vw, 16px);
+  line-height: 1.45;
+  color: var(--text-soft);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .sharing-panel__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sharing-col {
+    border-right: none;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    padding-bottom: clamp(24px, 4vw, 32px);
+  }
+
+  .sharing-col:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .sharing-col__num {
+    top: 8px;
+    right: 12px;
+    font-size: 36px;
+  }
+}
+
+/* ——— Footer ——— */
+.site-footer {
+  padding: 48px var(--pad-x) max(120px, calc(88px + env(safe-area-inset-bottom, 0px)));
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.site-footer__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.site-footer__brand {
+  margin: 0 0 16px;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.site-footer__links {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.site-footer__links a {
+  font-size: 14px;
+}
+
+.site-footer__copy {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-soft);
+}
+
+/* ——— Morph blobs, mesh & 3D hero ——— */
+.hero__stage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero__mesh {
+  position: absolute;
+  inset: -40% -20%;
+  background:
+    conic-gradient(from 120deg at 30% 40%, rgba(56, 189, 248, 0.35), transparent 40%, rgba(129, 140, 248, 0.3), transparent 70%, rgba(52, 211, 153, 0.28)),
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 113, 227, 0.2), transparent 55%);
+  animation: meshSpin 28s linear infinite;
+  opacity: 0.9;
+}
+
+@keyframes meshSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hero__blobs {
+  position: absolute;
+  inset: 0;
+}
+
+.blob {
+  position: absolute;
+  width: min(62vw, 560px);
+  height: min(62vw, 560px);
+  filter: blur(56px);
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  animation: morphBlob 22s ease-in-out infinite alternate;
+}
+
+.blob--1 {
+  background: #0ea5e9;
+  left: -18%;
+  top: 5%;
+}
+
+.blob--2 {
+  background: #6366f1;
+  right: -22%;
+  top: -8%;
+  animation-delay: -7s;
+  animation-duration: 26s;
+}
+
+.blob--3 {
+  background: #2dd4bf;
+  left: 25%;
+  bottom: -25%;
+  animation-delay: -14s;
+  animation-duration: 20s;
+}
+
+@keyframes morphBlob {
+  0% {
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  33% {
+    border-radius: 68% 32% 48% 52% / 38% 42% 58% 62%;
+    transform: translate(4%, 6%) rotate(120deg) scale(1.08);
+  }
+  66% {
+    border-radius: 32% 68% 55% 45% / 55% 35% 65% 45%;
+    transform: translate(-3%, 4%) rotate(240deg) scale(0.95);
+  }
+  100% {
+    border-radius: 55% 45% 35% 65% / 50% 60% 40% 50%;
+    transform: translate(2%, -2%) rotate(360deg) scale(1.02);
+  }
+}
+
+.hero__glow {
+  animation: heroPulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes heroPulse {
+  from {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+.hero__viz {
+  position: relative;
+  width: min(92vw, 520px);
+  height: min(52vw, 280px);
+  margin: 0 auto 40px;
+  perspective: 1100px;
+}
+
+.hero-scene {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  animation: sceneFloat 14s ease-in-out infinite;
+}
+
+@keyframes sceneFloat {
+  0%,
+  100% {
+    transform: rotateX(10deg) rotateY(-14deg) translateZ(0);
+  }
+  50% {
+    transform: rotateX(14deg) rotateY(10deg) translateZ(12px);
+  }
+}
+
+.hero-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 28px 48px rgba(15, 23, 42, 0.18));
+  animation: svgGlow 7s ease-in-out infinite;
+}
+
+@keyframes svgGlow {
+  50% {
+    filter: drop-shadow(0 34px 60px rgba(14, 165, 233, 0.28));
+  }
+}
+
+.hero-svg .iso-base {
+  fill: url(#paintCoast);
+  stroke: rgba(255, 255, 255, 0.35);
+  stroke-width: 0.6;
+}
+
+.hero-svg .iso-water {
+  fill: url(#paintWater);
+  opacity: 0.92;
+  animation: waterBreath 5s ease-in-out infinite alternate;
+}
+
+@keyframes waterBreath {
+  to {
+    opacity: 1;
+  }
+}
+
+.hero-svg .iso-mangrove {
+  fill: url(#paintLeaf);
+  transform-origin: center bottom;
+  transform-box: fill-box;
+  animation: mangroveSway 3.8s ease-in-out infinite alternate;
+}
+
+.hero-svg path.iso-mangrove:nth-child(3) {
+  animation-delay: 0s;
+}
+
+.hero-svg path.iso-mangrove:nth-child(4) {
+  animation-delay: -0.9s;
+}
+
+.hero-svg path.iso-mangrove:nth-child(5) {
+  animation-delay: -1.8s;
+}
+
+@keyframes mangroveSway {
+  from {
+    transform: skewX(-1.5deg) translateY(0);
+  }
+  to {
+    transform: skewX(1.5deg) translateY(-1px);
+  }
+}
+
+.hero-svg .iso-sun {
+  fill: url(#paintSun);
+  animation: sunPulse 5s ease-in-out infinite;
+}
+
+@keyframes sunPulse {
+  50% {
+    opacity: 0.88;
+    transform: scale(1.06);
+  }
+}
+
+.hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(12px, 3vw, 28px);
+  margin-top: 48px;
+}
+
+.stat {
+  min-width: 140px;
+  padding: 18px 22px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.55);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06);
+  text-align: center;
+  transform: translateY(12px);
+  opacity: 0;
+  animation: statRise 0.9s ease forwards, statLoop 4s ease-in-out 1.2s infinite;
+}
+
+.stat:nth-child(1) {
+  animation-delay: 0.15s, 1.3s;
+}
+
+.stat:nth-child(2) {
+  animation-delay: 0.3s, 1.45s;
+}
+
+.stat:nth-child(3) {
+  animation-delay: 0.45s, 1.6s;
+}
+
+@keyframes statRise {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes statLoop {
+  0%,
+  100% {
+    box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06);
+    transform: translateY(0);
+  }
+  50% {
+    box-shadow: 0 14px 40px rgba(0, 113, 227, 0.12);
+    transform: translateY(-3px);
+  }
+}
+
+.stat__num {
+  display: block;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.stat__lbl {
+  display: block;
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--text-soft);
+}
+
+/* ——— Detail sections ——— */
+.detail {
+  padding: clamp(48px, 8vw, 88px) var(--pad-x);
+  max-width: var(--max);
+  margin: clamp(22px, 3vw, 34px) auto;
+  border-radius: 34px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(244, 247, 252, 0.85));
+  box-shadow: 0 24px 68px rgba(15, 23, 42, 0.1);
+}
+
+.detail__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 36px;
+}
+
+.detail-card {
+  position: relative;
+  overflow: hidden;
+  padding: 28px 24px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(165deg, #ffffff 0%, #f8fafd 100%);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
+}
+
+.detail-card::after {
+  content: "";
+  position: absolute;
+  inset: -40% -10% auto;
+  height: 70px;
+  background: linear-gradient(90deg, rgba(14, 165, 233, 0.08), rgba(99, 102, 241, 0.08));
+  transform: rotate(-5deg);
+  pointer-events: none;
+}
+
+.detail-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+.detail-card__icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 14px;
+  color: #0071e3;
+}
+
+.detail-card h3 {
+  margin: 0 0 8px;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.detail-card p {
+  margin: 0;
+  font-size: 15px;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+
+.steps {
+  margin-top: 56px;
+  padding: 40px clamp(20px, 4vw, 48px);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(0, 113, 227, 0.06), rgba(52, 211, 153, 0.08));
+  border: 1px solid rgba(0, 113, 227, 0.12);
+}
+
+.steps h3 {
+  margin: 0 0 24px;
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 600;
+  text-align: center;
+}
+
+.steps__row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.step {
+  text-align: center;
+  padding: 16px;
+}
+
+.step__n {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--text);
+  color: #fff;
+  font-weight: 600;
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.step p {
+  margin: 0;
+  font-size: 15px;
+  color: var(--text-soft);
+}
+
+
+.insight-band {
+  position: relative;
+  max-width: var(--max);
+  margin: 0 auto clamp(34px, 5vw, 58px);
+  padding: clamp(40px, 7vw, 74px) var(--pad-x);
+}
+
+.insight-band__surface {
+  position: relative;
+  overflow: hidden;
+  border-radius: 30px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.97), rgba(241, 247, 255, 0.9));
+  box-shadow: 0 20px 62px rgba(15, 23, 42, 0.12);
+  padding: clamp(24px, 4vw, 42px);
+}
+
+.insight-band__blob {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 48% 52% 62% 38% / 44% 36% 64% 56%;
+  filter: blur(26px);
+  opacity: 0.22;
+  pointer-events: none;
+  animation: morphBlob 20s ease-in-out infinite alternate;
+}
+
+.insight-band__blob--1 {
+  top: -120px;
+  right: -80px;
+  background: #60a5fa;
+}
+
+.insight-band__blob--2 {
+  bottom: -130px;
+  left: -90px;
+  background: #34d399;
+  animation-delay: -8s;
+}
+
+.insight-band__header h2 {
+  margin: 0;
+  font-size: clamp(28px, 4.2vw, 42px);
+}
+
+.insight-band__header p {
+  margin: 12px 0 0;
+  max-width: 64ch;
+  color: var(--text-soft);
+}
+
+.insight-grid {
+  margin-top: 26px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(18px, 2.5vw, 28px);
+}
+
+.info-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: #fff;
+  padding: 20px 20px 18px;
+}
+
+.info-card::before {
+  content: "";
+  position: absolute;
+  inset: -120% 35% auto -35%;
+  height: 150px;
+  background: linear-gradient(90deg, rgba(56, 189, 248, 0.12), rgba(99, 102, 241, 0.08));
+  transform: rotate(-6deg);
+  animation: insightGlow 9s linear infinite;
+  pointer-events: none;
+}
+
+.info-card h3 {
+  margin: 0 0 14px;
+  font-size: 19px;
+}
+
+.trip-line {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.trip-line li {
+  display: grid;
+  grid-template-columns: 86px 1fr;
+  gap: 10px;
+  align-items: start;
+  font-size: 14px;
+  color: var(--text-soft);
+}
+
+.trip-line strong {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: #0f172a;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chips span {
+  display: inline-flex;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(2, 132, 199, 0.18);
+  background: rgba(14, 165, 233, 0.08);
+  color: #0b4a6f;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.stats-row {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.mini-stat {
+  border-radius: 14px;
+  background: rgba(2, 132, 199, 0.06);
+  border: 1px solid rgba(2, 132, 199, 0.1);
+  padding: 12px 10px;
+  text-align: center;
+}
+
+.mini-stat strong {
+  display: block;
+  font-size: 20px;
+  line-height: 1.1;
+}
+
+.mini-stat span {
+  font-size: 12px;
+  color: var(--text-soft);
+}
+
+.ops-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.ops-list li {
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: #f8fbff;
+  padding: 11px 12px;
+  font-size: 14px;
+  color: #0f172a;
+}
+
+@keyframes insightGlow {
+  from {
+    transform: translateX(-16%) rotate(-6deg);
+  }
+  to {
+    transform: translateX(26%) rotate(-6deg);
+  }
+}
+
+@media (max-width: 960px) {
+  .insight-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.faq {
+  margin-top: 48px;
+}
+
+.faq h3 {
+  margin: 0 0 16px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.faq details {
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  margin-bottom: 10px;
+  padding: 4px 18px;
+  transition: box-shadow 0.25s ease;
+}
+
+.faq details[open] {
+  box-shadow: var(--shadow-soft);
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 500;
+  padding: 14px 0;
+  list-style: none;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq p {
+  margin: 0 0 14px;
+  font-size: 15px;
+  color: var(--text-soft);
+  line-height: 1.55;
+}
+
+/* ——— Scroll reveal ——— */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(44px) scale(0.98);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* ——— Card photos & shimmer ——— */
+.card {
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease-out, box-shadow 0.25s ease;
+  will-change: transform;
+}
+
+.card__art {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+}
+
+.card__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.08);
+  animation: kenBurns 14s ease-in-out infinite alternate;
+}
+
+@keyframes kenBurns {
+  to {
+    transform: scale(1.18) translate(2%, -1%);
+  }
+}
+
+.card__art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.35) 45%, transparent 90%);
+  transform: translateX(-100%);
+  animation: cardShine 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes cardShine {
+  0%,
+  60% {
+    transform: translateX(-100%);
+  }
+  85% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.card__art--1 .card__photo,
+.card__art--2 .card__photo,
+.card__art--3 .card__photo,
+.card__art--4 .card__photo,
+.card__art--5 .card__photo,
+.card__art--6 .card__photo,
+.card__art--7 .card__photo,
+.card__art--8 .card__photo {
+  animation-duration: 16s;
+}
+
+.card__art--1,
+.card__art--2,
+.card__art--3,
+.card__art--4,
+.card__art--5,
+.card__art--6,
+.card__art--7,
+.card__art--8 {
+  background: #0f172a;
+}
+
+/* Mangrove cruise card: 1.svg “breaks” out of the frame (3D) */
+.card--pop3d {
+  overflow: visible;
+  isolation: isolate;
+}
+
+.card--pop3d .card__art--pop3d {
+  overflow: visible !important;
+  perspective: 880px;
+  perspective-origin: 50% 30%;
+  z-index: 2;
+  /* No dark strip — cut-out reads as floating off the card (3D) */
+  background: transparent !important;
+}
+
+.card--pop3d .card__art--pop3d::after {
+  display: none;
+}
+
+.card--pop3d .card__body {
+  position: relative;
+  z-index: 1;
+  padding-top: clamp(44px, 11vw, 76px);
+}
+
+.card__photo--pop3d {
+  inset: unset;
+  left: 50%;
+  right: auto;
+  top: auto;
+  bottom: 0;
+  width: min(118%, 400px);
+  height: auto;
+  min-height: 108%;
+  max-height: none;
+  object-fit: contain;
+  object-position: center bottom;
+  transform-origin: 50% 100%;
+  transform-style: preserve-3d;
+  opacity: 0;
+  transform: translate3d(-32%, 52%, 12px) scale(0.9) rotateX(12deg);
+  animation: none;
+  filter: drop-shadow(0 28px 40px rgba(15, 23, 42, 0.42));
+}
+
+.card--pop3d.is-revealed .card__photo--pop3d {
+  animation: pop3dSlideIn 0.88s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+@keyframes pop3dSlideIn {
+  to {
+    opacity: 1;
+    transform: translate3d(-50%, 16%, 42px) scale(1.12) rotateX(7deg);
+  }
+}
+
+/* ——— Mobile nav, scroll hints & extra motion ——— */
+@media (max-width: 700px) {
+  .site-header__inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding-bottom: 8px;
+  }
+
+  .site-logo {
+    text-align: center;
+    align-self: center;
+    font-size: clamp(16px, 4.5vw, 19px);
+    gap: 8px;
+  }
+
+  .site-logo__mark {
+    width: 28px;
+    height: 28px;
+  }
+
+  .site-nav {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 8px;
+    padding: 4px 0 10px;
+    margin-left: calc(-1 * var(--pad-x));
+    margin-right: calc(-1 * var(--pad-x));
+    padding-left: var(--pad-x);
+    padding-right: var(--pad-x);
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    mask-image: linear-gradient(90deg, transparent, #000 20px, #000 calc(100% - 20px), transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 20px, #000 calc(100% - 20px), transparent);
+  }
+
+  .site-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-nav__link,
+  .site-nav__cta {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .site-nav__link {
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+  }
+
+  .site-nav__cta {
+    padding: 10px 18px;
+    font-size: 13px;
+  }
+
+  .site-nav__link--icon {
+    min-width: 44px;
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .blob {
+    filter: blur(38px);
+    opacity: 0.45;
+  }
+
+  .hero__mesh {
+    animation-duration: 44s;
+    opacity: 0.78;
+  }
+
+  .hero__viz {
+    width: 100%;
+    max-width: 100%;
+    height: clamp(150px, 44vw, 230px);
+    margin-bottom: 24px;
+  }
+
+  .hero-scene {
+    animation-duration: 18s;
+  }
+
+  .hero__title {
+    font-size: clamp(30px, 8.5vw, 48px);
+  }
+
+  .hero__lead {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    max-width: 360px;
+    padding: 16px 22px;
+    font-size: 16px;
+  }
+
+  .stat {
+    min-width: 0;
+    flex: 1 1 calc(33.33% - 6px);
+    padding: 12px 8px;
+    min-height: 78px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .stat__num {
+    font-size: clamp(18px, 5vw, 24px);
+  }
+
+  .stat__lbl {
+    font-size: 11px;
+    line-height: 1.25;
+  }
+
+  .card {
+    flex: 0 0 min(320px, 91vw);
+  }
+
+  .card__body {
+    padding: 20px 18px 24px;
+  }
+
+  .card__price {
+    font-size: 28px;
+  }
+
+  .band__title {
+    font-size: clamp(24px, 6.5vw, 38px);
+  }
+
+  .detail__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sharing-col__list {
+    font-size: 16px;
+  }
+
+  .sharing-panel__headline {
+    font-size: 24px;
+  }
+
+  .sharing-panel__lead {
+    font-size: 17px;
+  }
+}
+
+.h-scroll-outer {
+  position: relative;
+  margin: 0 calc(-1 * var(--pad-x));
+  padding: 0 var(--pad-x);
+}
+
+.h-scroll-outer .h-scroll {
+  scroll-padding-inline: 12px;
+}
+
+.scroll-hint {
+  display: none;
+}
+
+@media (max-width: 1099px) {
+  .scroll-hint {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    z-index: 4;
+    width: 32px;
+    height: 64px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-soft);
+    opacity: 0.45;
+    pointer-events: none;
+  }
+
+  .scroll-hint--left {
+    left: 2px;
+    transform: translateY(-50%);
+    animation: bounceLeft 1.6s ease-in-out infinite;
+  }
+
+  .scroll-hint--right {
+    right: 2px;
+    transform: translateY(-50%);
+    animation: bounceRight 1.6s ease-in-out infinite;
+    animation-delay: 0.12s;
+  }
+
+  .h-scroll-outer::before,
+  .h-scroll-outer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 22px;
+    width: 32px;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  .h-scroll-outer::before {
+    left: 0;
+    background: linear-gradient(90deg, var(--bg) 0%, transparent 100%);
+  }
+
+  .h-scroll-outer::after {
+    right: 0;
+    background: linear-gradient(270deg, var(--bg) 0%, transparent 100%);
+  }
+
+  section.band--alt .h-scroll-outer::before {
+    background: linear-gradient(90deg, var(--bg-alt) 0%, transparent 100%);
+  }
+
+  section.band--alt .h-scroll-outer::after {
+    background: linear-gradient(270deg, var(--bg-alt) 0%, transparent 100%);
+  }
+
+  section.band--packages .h-scroll-outer::before {
+    background: linear-gradient(90deg, #ececee 0%, transparent 100%);
+  }
+
+  section.band--packages .h-scroll-outer::after {
+    background: linear-gradient(270deg, #ececee 0%, transparent 100%);
+  }
+}
+
+@keyframes bounceLeft {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(-50%) translateX(0);
+  }
+  50% {
+    opacity: 0.85;
+    transform: translateY(-50%) translateX(-5px);
+  }
+}
+
+@keyframes bounceRight {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(-50%) translateX(0);
+  }
+  50% {
+    opacity: 0.85;
+    transform: translateY(-50%) translateX(5px);
+  }
+}
+
+.scroll-tip {
+  display: none;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-soft);
+  margin: -20px auto 28px;
+  max-width: var(--max);
+  padding: 0 var(--pad-x);
+  letter-spacing: 0.02em;
+  animation: tipPulse 2.5s ease-in-out infinite;
+}
+
+@media (max-width: 1099px) {
+  .scroll-tip {
+    display: block;
+  }
+}
+
+@keyframes tipPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes heroPopIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes heroIdleGlow {
+  0%,
+  100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.9;
+    filter: brightness(1.06);
+  }
+}
+
+.hero-in {
+  opacity: 0;
+  animation: heroPopIn 0.78s cubic-bezier(0.16, 1, 0.3, 1) forwards, heroIdleGlow 3.6s ease-in-out 0s infinite;
+}
+
+.hero-in--1 {
+  animation-delay: 0.06s, 0.95s;
+}
+.hero-in--2 {
+  animation-delay: 0.16s, 1.05s;
+}
+.hero-in--3 {
+  animation-delay: 0.26s, 1.15s;
+}
+.hero-in--4 {
+  animation-delay: 0.36s, 1.25s;
+}
+.hero-in--5 {
+  animation-delay: 0.46s, 1.35s;
+}
+.hero-in--6 {
+  animation-delay: 0.56s, 1.45s;
+}
+
+.hero__particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero__particles span {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.45);
+  animation: floatDot 9s ease-in-out infinite;
+}
+
+.hero__particles span:nth-child(1) {
+  left: 14%;
+  top: 36%;
+}
+.hero__particles span:nth-child(2) {
+  left: 76%;
+  top: 20%;
+  animation-delay: -2s;
+  animation-duration: 11s;
+}
+.hero__particles span:nth-child(3) {
+  left: 52%;
+  top: 62%;
+  animation-delay: -3.5s;
+}
+.hero__particles span:nth-child(4) {
+  left: 28%;
+  top: 74%;
+  animation-delay: -1s;
+  animation-duration: 10s;
+}
+.hero__particles span:nth-child(5) {
+  left: 86%;
+  top: 66%;
+  animation-delay: -4s;
+}
+.hero__particles span:nth-child(6) {
+  left: 10%;
+  top: 16%;
+  animation-delay: -5s;
+  animation-duration: 12s;
+}
+
+@keyframes floatDot {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translate(12px, -20px);
+    opacity: 0.95;
+  }
+}
+
+@keyframes noticeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes noticeSoftLoop {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.88;
+  }
+}
+
+.notice--animate {
+  animation: noticeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both, noticeSoftLoop 3.5s ease-in-out 1.1s infinite;
+}
+
+@keyframes btnPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 113, 227, 0);
+  }
+  50% {
+    box-shadow: 0 10px 32px rgba(0, 113, 227, 0.32);
+  }
+}
+
+@keyframes iconFloatLoop {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(2deg);
+  }
+}
+
+.detail-card.is-revealed .detail-card__icon {
+  animation: iconPop 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) 0.12s both, iconFloatLoop 3.2s ease-in-out 0.85s infinite;
+}
+
+@keyframes iconPop {
+  0% {
+    transform: scale(0.5) rotate(-10deg);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes stepGlowLoop {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(0, 113, 227, 0);
+  }
+  50% {
+    box-shadow: 0 6px 20px rgba(0, 113, 227, 0.18);
+  }
+}
+
+.steps.is-revealed .step {
+  opacity: 0;
+  animation: heroPopIn 0.62s cubic-bezier(0.16, 1, 0.3, 1) forwards, stepGlowLoop 3.8s ease-in-out 1s infinite;
+}
+
+.steps.is-revealed .step:nth-child(1) {
+  animation-delay: 0.08s, 1.05s;
+}
+.steps.is-revealed .step:nth-child(2) {
+  animation-delay: 0.2s, 1.17s;
+}
+.steps.is-revealed .step:nth-child(3) {
+  animation-delay: 0.32s, 1.29s;
+}
+
+.faq details {
+  transition: box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+.faq details:active {
+  transform: scale(0.992);
+}
+
+/* ——— Reviews & FAQ (bottom) ——— */
+.reviews-faq {
+  padding: clamp(56px, 10vw, 96px) var(--pad-x) clamp(72px, 14vw, 120px);
+  background: var(--bg-alt);
+  border-top: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+
+.reviews-faq::before {
+  content: "";
+  position: absolute;
+  width: min(60vw, 700px);
+  height: min(60vw, 700px);
+  left: -260px;
+  bottom: -340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.16), transparent 68%);
+  pointer-events: none;
+}
+
+.reviews-faq__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(20px, 3vw, 32px);
+  border-radius: 30px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.88), rgba(243, 246, 251, 0.78));
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.reviews-faq__title {
+  margin: 0 0 10px;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  text-align: center;
+}
+
+.reviews-faq__lead {
+  margin: 0 auto 40px;
+  text-align: center;
+  color: var(--text-soft);
+  max-width: 52ch;
+  font-size: 17px;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-bottom: 56px;
+}
+
+.review-card {
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
+  animation: reviewFloat 5s ease-in-out infinite;
+}
+
+.review-card:nth-child(2) {
+  animation-delay: -1.2s;
+}
+
+.review-card:nth-child(3) {
+  animation-delay: -2.4s;
+}
+
+@keyframes reviewFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+    box-shadow: var(--shadow-soft);
+  }
+  50% {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.09);
+  }
+}
+
+.review-card__stars {
+  color: #f59e0b;
+  font-size: 18px;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+.review-card__text {
+  margin: 0 0 14px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.review-card__meta {
+  font-size: 13px;
+  color: var(--text-soft);
+}
+
+.faq-bottom {
+  margin-top: 12px;
+}
+
+.faq-bottom > h3 {
+  margin: 0 0 20px;
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 600;
+  text-align: center;
+}
+
+@keyframes fabGlow {
+  50% {
+    box-shadow: 0 10px 40px rgba(37, 211, 102, 0.55);
+  }
+}
+
+/* ——— FAB ——— */
+.fab {
+  position: fixed;
+  right: max(20px, env(safe-area-inset-right));
+  bottom: max(28px, calc(12px + env(safe-area-inset-bottom)));
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4);
+  z-index: 150;
+  text-decoration: none !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: fabGlow 3.5s ease-in-out infinite;
+}
+
+.fab:hover {
+  transform: scale(1.05);
+  text-decoration: none !important;
+  box-shadow: 0 12px 36px rgba(37, 211, 102, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .btn,
+  .fab:hover {
+    transition: none;
+  }
+
+  .fab:hover {
+    transform: none;
+  }
+
+  .blob,
+  .insight-band__blob,
+  .hero__mesh,
+  .hero__bg-layer,
+  .hero-scene,
+  .hero__glow,
+  .card__photo,
+  .fab,
+  .stat,
+  .hero-in,
+  .hero__particles span,
+  .notice--animate,
+  .site-logo,
+  .btn--solid,
+  .scroll-hint,
+  .hero-svg,
+  .hero-svg .iso-water,
+  .hero-svg .iso-mangrove,
+  .hero-svg .iso-sun,
+  .detail-card.is-revealed .detail-card__icon,
+  .steps.is-revealed .step {
+    animation: none !important;
+  }
+
+  .review-card {
+    animation: none !important;
+  }
+
+  .hero-in {
+    opacity: 1;
+  }
+
+  .hero__bg-layer {
+    transition: none !important;
+  }
+
+  .site-logo {
+    opacity: 1;
+  }
+
+  .steps.is-revealed .step {
+    opacity: 1;
+  }
+
+  .card__art::after {
+    display: none;
+  }
+
+  .info-card::before {
+    display: none;
+  }
+
+  .card__photo--pop3d {
+    opacity: 1 !important;
+    transform: translate3d(-50%, 16%, 42px) scale(1.12) rotateX(7deg) !important;
+    animation: none !important;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .scroll-tip {
+    animation: none;
+    opacity: 0.75;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="site-header__inner">
+      <a class="site-logo" href="#hero" aria-label="SeaHorse Langkawi home">
+        <img class="site-logo__mark" src="image/logo.svg" alt="SeaHorse Langkawi logo">
+        <span>SeaHorse Langkawi</span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a class="site-nav__link" href="#hero">Home</a>
+        <a class="site-nav__link" href="#mangrove">Mangrove</a>
+        <a class="site-nav__link" href="#about">About us</a>
+        <a class="site-nav__link" href="#lain">More tours</a>
+        <a class="site-nav__link" href="#reviews-faq">FAQ</a>
+        <a class="site-nav__link site-nav__link--icon" href="https://www.facebook.com/Mangrove-tour-murah-langkawi-103870957739320/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a class="site-nav__cta" href="https://www.wasap.my/60175145423mangrove_murah" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero hero--slider hero--foxico" id="hero" data-hero-slider>
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__bg-layer is-active" data-hero-bg="0" style="background-image:url(image/kilim.jpg);"></div>
+        <div class="hero__bg-layer" data-hero-bg="1" style="background-image:url(image/tanjungrhu.jpg);"></div>
+        <div class="hero__bg-layer" data-hero-bg="2" style="background-image:url(image/andaman.jpg);"></div>
+        <div class="hero__bg-layer" data-hero-bg="3" style="background-image:url(image/dayang%20bunting%20.jpg);"></div>
+      </div>
+      <div class="hero__stage" aria-hidden="true">
+        <div class="hero__mesh"></div>
+        <div class="hero__blobs">
+          <span class="blob blob--1"></span>
+          <span class="blob blob--2"></span>
+          <span class="blob blob--3"></span>
+        </div>
+      </div>
+      <div class="hero__dim" aria-hidden="true"></div>
+      <div class="hero__shell">
+        <aside class="hero__rail" aria-label="Highlight slides">
+          <div class="hero__rail-inner">
+            <span class="hero__rail-line"></span>
+            <div class="hero__rail-stops">
+              <button type="button" class="hero__rail-stop is-active" data-hero-rail="0" aria-label="Highlight 1"><span class="hero__rail-stop-num">1</span></button>
+              <button type="button" class="hero__rail-stop" data-hero-rail="1" aria-label="Highlight 2"><span class="hero__rail-stop-num">2</span></button>
+              <button type="button" class="hero__rail-stop" data-hero-rail="2" aria-label="Highlight 3"><span class="hero__rail-stop-num">3</span></button>
+              <button type="button" class="hero__rail-stop" data-hero-rail="3" aria-label="Highlight 4"><span class="hero__rail-stop-num">4</span></button>
+            </div>
+          </div>
+        </aside>
+        <div class="hero__copy hero__copy--foxico">
+          <p class="hero__eyebrow">SeaHorse Langkawi · Tanjung Rhu</p>
+          <div class="hero__live" aria-live="polite" aria-atomic="true">
+            <h1 class="hero__title" id="hero-slide-headline">KILIM</h1>
+            <p class="hero__lead" id="hero-slide-lead">UNESCO mangrove forests, eagle feeding &amp; calm river cruises — depart from Tanjung Rhu.</p>
+          </div>
+          <div class="hero__copyBottom">
+            <a class="hero__explore" href="#mangrove">
+              <span>Explore</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <p class="hero__pager" aria-live="polite"><span id="hero-slide-current">01</span><span class="hero__pager-sep">/</span><span id="hero-slide-total">04</span></p>
+          </div>
+        </div>
+        <div class="hero-carousel" aria-roledescription="carousel" aria-label="Langkawi highlights">
+          <div class="hero-carousel__track" id="hero-carousel-track" role="tablist">
+            <button type="button" class="hero-carousel__card is-active" data-hero-slide="0" role="tab" aria-selected="true">
+              <span class="hero-card__head">
+                <span class="hero-carousel__label">Kilim</span>
+                <span class="hero-card__dots" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+              </span>
+              <span class="hero-carousel__media">
+                <span class="hero-card__bookmark" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 3h10a2 2 0 012 2v16l-7-3.5L5 21V5a2 2 0 012-2z" stroke="#94a3b8" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                </span>
+                <img src="image/kilim.jpg" alt="" loading="eager" decoding="async" width="400" height="720" />
+              </span>
+            </button>
+            <button type="button" class="hero-carousel__card" data-hero-slide="1" role="tab" aria-selected="false">
+              <span class="hero-card__head">
+                <span class="hero-carousel__label">Tanjung Rhu</span>
+                <span class="hero-card__dots" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+              </span>
+              <span class="hero-carousel__media">
+                <span class="hero-card__bookmark" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 3h10a2 2 0 012 2v16l-7-3.5L5 21V5a2 2 0 012-2z" stroke="#94a3b8" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                </span>
+                <img src="image/tanjungrhu.jpg" alt="" loading="lazy" decoding="async" width="400" height="720" />
+              </span>
+            </button>
+            <button type="button" class="hero-carousel__card" data-hero-slide="2" role="tab" aria-selected="false">
+              <span class="hero-card__head">
+                <span class="hero-carousel__label">Andaman sea</span>
+                <span class="hero-card__dots" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+              </span>
+              <span class="hero-carousel__media">
+                <span class="hero-card__bookmark" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 3h10a2 2 0 012 2v16l-7-3.5L5 21V5a2 2 0 012-2z" stroke="#94a3b8" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                </span>
+                <img src="image/andaman.jpg" alt="" loading="lazy" decoding="async" width="400" height="720" />
+              </span>
+            </button>
+            <button type="button" class="hero-carousel__card" data-hero-slide="3" role="tab" aria-selected="false">
+              <span class="hero-card__head">
+                <span class="hero-carousel__label">Dayang Bunting Lake</span>
+                <span class="hero-card__dots" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+              </span>
+              <span class="hero-carousel__media">
+                <span class="hero-card__bookmark" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 3h10a2 2 0 012 2v16l-7-3.5L5 21V5a2 2 0 012-2z" stroke="#94a3b8" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                </span>
+                <img src="image/dayang%20bunting%20.jpg" alt="" loading="lazy" decoding="async" width="400" height="720" />
+              </span>
+            </button>
+          </div>
+          <div class="hero-carousel__controls">
+            <button type="button" class="hero-carousel__nav" data-hero-dir="prev" aria-label="Previous highlight">‹</button>
+            <button type="button" class="hero-carousel__nav" data-hero-dir="next" aria-label="Next highlight">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="notice notice--animate" id="snorkel-dates">
+      <div class="notice__inner">
+        <p><strong>Best snorkeling dates</strong> — check our Facebook page <a href="https://www.facebook.com/Mangrove-tour-murah-langkawi-103870957739320/" target="_blank" rel="noopener noreferrer">Mangrove tour murah Langkawi</a> for the latest updates.</p>
+      </div>
+    </aside>
+
+    <section class="detail" id="about">
+      <div class="band__intro reveal-on-scroll" style="margin-bottom: 0; padding-left: 0; padding-right: 0;">
+        <h2 class="band__title">Why it feels special</h2>
+        <p class="band__subtitle">Mangrove rivers, turquoise Kilim channels, wildlife &amp; local stories — woven into one smooth day on the water.</p>
+      </div>
+      <div class="detail__grid">
+        <article class="detail-card reveal-on-scroll">
+          <svg class="detail-card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 32c4-8 12-12 16-12s12 4 16 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M24 8v14M18 18l6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <h3>Kilim Geopark</h3>
+          <p>Limestone, mangrove roots &amp; quiet creeks — landscapes that feel worlds away from the crowds.</p>
+        </article>
+        <article class="detail-card reveal-on-scroll">
+          <svg class="detail-card__icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M10 28c6-10 22-10 28 0" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="18" r="3" fill="currentColor"/><circle cx="32" cy="18" r="3" fill="currentColor"/></svg>
+          <h3>Wildlife</h3>
+          <p>Eagle feeding, macaques, cave bats &amp; crocodile cave tales — guides keep the pace safe and fun.</p>
+        </article>
+        <article class="detail-card reveal-on-scroll">
+          <svg class="detail-card__icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="22" r="10" stroke="currentColor" stroke-width="2"/><path d="M14 38h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <h3>Sea &amp; snorkeling</h3>
+          <p>Andaman cruises and snorkel spots like Pulau Dangli &amp; Teluk Datai when included in your package.</p>
+        </article>
+        <article class="detail-card reveal-on-scroll">
+          <svg class="detail-card__icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M8 36 L24 10 L40 36Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          <h3>Flexible</h3>
+          <p>Private charter for families &amp; friends, or a 4-hour shared trip with lunch &amp; transfers included.</p>
+        </article>
+      </div>
+      <div class="steps reveal-on-scroll">
+        <h3>How to book (3 steps)</h3>
+        <div class="steps__row">
+          <div class="step"><div class="step__n">1</div><p>Message us on WhatsApp with your date, group size &amp; chosen package.</p></div>
+          <div class="step"><div class="step__n">2</div><p>Confirm meeting time &amp; Tanjung Rhu jetty details.</p></div>
+          <div class="step"><div class="step__n">3</div><p>Show up at the jetty — we handle the boat &amp; route; you enjoy the ride.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="insight-band" id="trip-guide">
+      <div class="insight-band__surface reveal-on-scroll">
+        <span class="insight-band__blob insight-band__blob--1" aria-hidden="true"></span>
+        <span class="insight-band__blob insight-band__blob--2" aria-hidden="true"></span>
+        <div class="insight-band__header">
+          <h2>Trip guide at a glance</h2>
+          <p>Everything important in one place: route flow, what to prepare, operation windows, and what guests normally ask before booking.</p>
+        </div>
+        <div class="insight-grid">
+          <article class="info-card reveal-on-scroll">
+            <h3>Typical route timeline</h3>
+            <ul class="trip-line">
+              <li><strong>00:00</strong><span>Meet at Tanjung Rhu jetty, safety brief, boat intro.</span></li>
+              <li><strong>00:25</strong><span>Mangrove channels, eagle feeding, wildlife spots.</span></li>
+              <li><strong>01:20</strong><span>Cave / fish farm stop depending on tide condition.</span></li>
+              <li><strong>02:00+</strong><span>Optional sea stretch / snorkeling / island stop by package.</span></li>
+            </ul>
+            <div class="stats-row">
+              <div class="mini-stat"><strong>1-8</strong><span>Guests / boat</span></div>
+              <div class="mini-stat"><strong>2h-4h</strong><span>Trip duration</span></div>
+              <div class="mini-stat"><strong>Daily</strong><span>Departures</span></div>
+              <div class="mini-stat"><strong>WhatsApp</strong><span>Fast booking</span></div>
+            </div>
+          </article>
+          <article class="info-card reveal-on-scroll">
+            <h3>What to prepare</h3>
+            <div class="chips">
+              <span>Cap / sunblock</span>
+              <span>Light clothes</span>
+              <span>Drinking water</span>
+              <span>Dry bag</span>
+              <span>Towel + extra shirt</span>
+              <span>Cash / QR</span>
+            </div>
+            <h3 style="margin-top:18px;">Operations &amp; notes</h3>
+            <ul class="ops-list">
+              <li>Departure point: Tanjung Rhu jetty (exact pin shared on WhatsApp).</li>
+              <li>Route order can change based on tide, weather, and marine safety.</li>
+              <li>Private charter pace is flexible for kids, seniors, and families.</li>
+              <li>Snorkeling visibility is seasonal; best dates posted on Facebook.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--packages" id="mangrove">
+      <div class="band__intro reveal-on-scroll">
+        <h2 class="band__title">Mangrove tours</h2>
+        <p class="band__subtitle">Private 1–8 guests · departing Tanjung Rhu</p>
+      </div>
+      <div class="pkg-toolbar reveal-on-scroll" data-pkg-scope="mangrove">
+        <div class="pkg-filters" role="group" aria-label="Filter mangrove packages">
+          <button type="button" class="pkg-filters__pill is-active" data-pkg-filter="all">All packages</button>
+          <button type="button" class="pkg-filters__pill" data-pkg-filter="2h">2 hours</button>
+          <button type="button" class="pkg-filters__pill" data-pkg-filter="3h">3 hours</button>
+          <button type="button" class="pkg-filters__pill" data-pkg-filter="4h">4 hours</button>
+        </div>
+      </div>
+      <p class="scroll-tip">← Swipe sideways to see all mangrove packages →</p>
+      <div class="h-scroll-outer">
+        <span class="scroll-hint scroll-hint--left" aria-hidden="true">‹</span>
+        <span class="scroll-hint scroll-hint--right" aria-hidden="true">›</span>
+        <div class="h-scroll h-scroll--packages" role="region" aria-label="Mangrove packages" tabindex="0">
+        <article class="card card--a card--package reveal-on-scroll" id="tour-2h" data-pkg-dur="2h">
+          <div class="card__art card__art--1" aria-hidden="true"><img class="card__photo" src="image/mangrovecruise.jpg" alt="" loading="lazy" decoding="async" /></div>
+          <div class="card__body card__body--package">
+            <div class="card__headrow">
+              <h3 class="card__name">Mangrove cruise</h3>
+              <span class="card__rating" aria-hidden="true">★ <span>5.0</span></span>
+            </div>
+            <p class="card__region">Langkawi · Kilim Geopark · Tanjung Rhu</p>
+            <div class="card__footerrow">
+              <span class="card__hintDate">Daily departures</span>
+              <div class="card__priceblock"><span class="card__price">RM270</span><span class="card__priceSuffix">/ boat</span></div>
+            </div>
+            <button type="button" class="btn btn--view" data-open-pkg="tour-2h">View details</button>
+          </div>
+        </article>
+        <article class="card card--a card--package reveal-on-scroll" id="tour-3h" data-pkg-dur="3h">
+          <div class="card__art card__art--2" aria-hidden="true"><img class="card__photo" src="image/fullmangrove.webp" alt="" loading="lazy" decoding="async" /></div>
+          <div class="card__body card__body--package">
+            <div class="card__headrow">
+              <h3 class="card__name">Full mangrove</h3>
+              <span class="card__rating" aria-hidden="true">★ <span>5.0</span></span>
+            </div>
+            <p class="card__region">Langkawi · boat charter · max 8 guests</p>
+            <div class="card__footerrow">
+              <span class="card__hintDate">Daily departures</span>
+              <div class="card__priceblock"><span class="card__price">RM330</span><span class="card__priceSuffix">/ boat</span></div>
+            </div>
+            <button type="button" class="btn btn--view" data-open-pkg="tour-3h">View details</button>
+          </div>
+        </article>
+        <article class="card card--a card--package reveal-on-scroll" id="tour-4h" data-pkg-dur="4h">
+          <div class="card__art card__art--3" aria-hidden="true"><img class="card__photo" src="image/snorkelling.jpg" alt="" loading="lazy" decoding="async" /></div>
+          <div class="card__body card__body--package">
+            <div class="card__headrow">
+              <h3 class="card__name">Mangrove + snorkeling</h3>
+              <span class="card__rating" aria-hidden="true">★ <span>5.0</span></span>
+            </div>
+            <p class="card__region">Langkawi · charter · snorkeling add-on</p>
+            <div class="card__footerrow">
+              <span class="card__hintDate">Daily departures</span>
+              <div class="card__priceblock"><span class="card__price">RM380</span><span class="card__priceSuffix">/ boat</span></div>
+            </div>
+            <button type="button" class="btn btn--view" data-open-pkg="tour-4h">View details</button>
+          </div>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--alt band--sharing-video" id="sharing">
+      <video
+        class="band-sharing__video"
+        autoplay
+        muted
+        loop
+        playsinline
+        aria-hidden="true"
+      >
+        <source src="image/video.mp4" type="video/mp4" />
+      </video>
+      <div class="band-sharing__overlay" aria-hidden="true"></div>
+      <div class="band-sharing__inner">
+        <div class="band__intro band__intro--row reveal-on-scroll">
+          <div>
+            <h2 class="band__title">Mangrove sharing</h2>
+            <p class="band__subtitle">4 hours · RM99 per person</p>
+          </div>
+          <a class="btn btn--solid btn--sm" href="https://www.wasap.my/60175145423mangrove_murah" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        </div>
+        <div class="sharing-panel reveal-on-scroll">
+          <div class="sharing-panel__surface">
+            <div class="sharing-panel__head">
+              <p class="sharing-panel__eyebrow">Shared boat · ~4 hours</p>
+              <h3 class="sharing-panel__headline">What’s in your ticket</h3>
+              <p class="sharing-panel__lead">River, sea &amp; lunch — one price. Same trip, less fine print.</p>
+            </div>
+            <div class="sharing-panel__grid">
+              <div class="sharing-col">
+                <span class="sharing-col__num" aria-hidden="true">01</span>
+                <p class="sharing-col__label">Mangrove</p>
+                <h4 class="sharing-col__title">River &amp; caves</h4>
+                <ul class="sharing-col__list">
+                  <li>Mangrove cruise in Kilim</li>
+                  <li>Eagle &amp; monkey feeding</li>
+                  <li>Crocodile &amp; bat caves</li>
+                </ul>
+              </div>
+              <div class="sharing-col">
+                <span class="sharing-col__num" aria-hidden="true">02</span>
+                <p class="sharing-col__label">Sea</p>
+                <h4 class="sharing-col__title">Island &amp; open water</h4>
+                <ul class="sharing-col__list">
+                  <li>Kilim Geopark island stop</li>
+                  <li>Andaman sea stretch</li>
+                  <li>Swim if safe · fish farm</li>
+                </ul>
+              </div>
+              <div class="sharing-col">
+                <span class="sharing-col__num" aria-hidden="true">03</span>
+                <p class="sharing-col__label">Extras</p>
+                <h4 class="sharing-col__title">Lunch &amp; transfers</h4>
+                <ul class="sharing-col__list">
+                  <li>Lunch included</li>
+                  <li>Hotel pickup &amp; return</li>
+                  <li>English-speaking guide</li>
+                </ul>
+              </div>
+            </div>
+            <p class="sharing-panel__foot">Order can change with tides — still within ~4 hours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--packages" id="lain">
+      <div class="band__intro reveal-on-scroll">
+        <h2 class="band__title">More experiences</h2>
+        <p class="band__subtitle">Islands, ATV, snorkeling &amp; fishing</p>
+      </div>
+      <p class="scroll-tip">← Swipe to see all price cards →</p>
+      <div class="h-scroll-outer">
+        <span class="scroll-hint scroll-hint--left" aria-hidden="true">‹</span>
+        <span class="scroll-hint scroll-hint--right" aria-hidden="true">›</span>
+        <div class="h-scroll h-scroll--dense h-scroll--packages" role="region" aria-label="More tour packages" tabindex="0">
+        <article class="card card--b card--package reveal-on-scroll" id="island">
+          <div class="card__art card__art--4" aria-hidden="true"><img class="card__photo" src="image/islandhopping.jpg" alt="" loading="lazy" decoding="async" /></div>
+          <div class="card__body card__body--package">
+            <div class="card__headrow">
+              <h3 class="card__name">Island hopping</h3>
+              <span class="card__rating" aria-hidden="true">★ <span>5.0</span></span>
+            </div>
+            <p class="card__region">Langkawi · 3–4 hours · charter</p>
+            <div class="card__footerrow">
+              <span class="card__hintDate">Check availability</span>
+              <div class="card__priceblock"><span class="card__price">RM380</span><span class="card__priceSuffix">/ boat</span></div>
+            </div>
+            <button type="button" class="btn btn--view" data-open-pkg="island">View details</button>
+          </div>
+        </article>
+        <article class="card card--b card--package reveal-on-scroll" id="atv">
+          <div class="card__art card__art--5" aria-hidden="true"><img class="card__photo" src="image/atv.jpg" alt="" loading="lazy" decoding="async" /></div>
+          <div class="card__body card__body--package">
+            <div class="card__headrow">
+              <h3 class="card__name">ATV tour</h3>
+              <span class="card__rating" aria-hidden="true">★ <span>5.0</span></span>
+            </div>
+            <p class="card__region">Langkawi · 90 minutes · 1 unit</p>
+            <div class="card__footerrow">
+              <span class="card__hintDate">Daily slots</span>
+              <div class="card__priceblock"><span class="card__price">RM150</span><span class="card__priceSuffix">/ unit</span></div>
+            </div>
+            <button type="button" class="btn btn--view" data-open-pkg="atv">View details</button>
+          </div>
+        </article>
+        <article class="card card--b card--package reveal-on-scroll" id="snorkel">
+          <div class="card__art card__art--6" aria-hidden="true"><img class="card__photo" src="image/snorkelling2.jpg" alt="" loading="lazy" decoding="async" /></div>
+          <div class="card__body card__body--package">
+            <div class="card__headrow">
+              <h3 class="card__name">Snorkeling · 2h · 1 stop</h3>
+              <span class="card__rating" aria-hidden="true">★ <span>5.0</span></span>
+            </div>
+            <p class="card__region">Langkawi · Pulau Dangli · 1–8 guests</p>
+            <div class="card__footerrow">
+              <span class="card__hintDate">See Facebook for dates</span>
+              <div class="card__priceblock"><span class="card__price">RM250</span><span class="card__priceSuffix">/ boat</span></div>
+            </div>
+            <button type="button" class="btn btn--view" data-open-pkg="snorkel">View details</button>
+          </div>
+        </article>
+        <article class="card card--b card--package reveal-on-scroll" id="snorkel-4h">
+          <div class="card__art card__art--7" aria-hidden="true"><img class="card__photo" src="image/snorkelling3.jpg" alt="" loading="lazy" decoding="async" /></div>
+          <div class="card__body card__body--package">
+            <div class="card__headrow">
+              <h3 class="card__name">Snorkeling · 4h · 2 stops</h3>
+              <span class="card__rating" aria-hidden="true">★ <span>5.0</span></span>
+            </div>
+            <p class="card__region">Pulau Dangli · Teluk Datai · 1–8 guests</p>
+            <div class="card__footerrow">
+              <span class="card__hintDate"><a href="#snorkel-dates">Best dates →</a></span>
+              <div class="card__priceblock"><span class="card__price">RM500</span><span class="card__priceSuffix">/ boat</span></div>
+            </div>
+            <button type="button" class="btn btn--view" data-open-pkg="snorkel-4h">View details</button>
+          </div>
+        </article>
+        <article class="card card--b card--package reveal-on-scroll" id="fishing">
+          <div class="card__art card__art--8" aria-hidden="true"><img class="card__photo" src="image/fishing.jpg" alt="" loading="lazy" decoding="async" /></div>
+          <div class="card__body card__body--package">
+            <div class="card__headrow">
+              <h3 class="card__name">Fun fishing</h3>
+              <span class="card__rating" aria-hidden="true">★ <span>5.0</span></span>
+            </div>
+            <p class="card__region">Langkawi · 4 hours · max 4 guests</p>
+            <div class="card__footerrow">
+              <span class="card__hintDate">Charter fishing</span>
+              <div class="card__priceblock"><span class="card__price">RM650</span><span class="card__priceSuffix">/ trip</span></div>
+            </div>
+            <button type="button" class="btn btn--view" data-open-pkg="fishing">View details</button>
+          </div>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews-faq" id="reviews-faq">
+      <div class="reviews-faq__inner">
+        <h2 class="reviews-faq__title reveal-on-scroll">Customer reviews</h2>
+        <p class="reviews-faq__lead reveal-on-scroll">Recent feedback from guests who joined our mangrove &amp; sea trips.</p>
+        <div class="reviews-grid">
+          <article class="review-card reveal-on-scroll">
+            <div class="review-card__stars" aria-hidden="true">★★★★★</div>
+            <p class="review-card__text">&ldquo;Clear pricing on WhatsApp, boat was on time at Tanjung Rhu, and the guide made the mangrove route really fun for our kids.&rdquo;</p>
+            <p class="review-card__meta">— Family from KL · mangrove 3h</p>
+          </article>
+          <article class="review-card reveal-on-scroll">
+            <div class="review-card__stars" aria-hidden="true">★★★★★</div>
+            <p class="review-card__text">&ldquo;Sharing trip was worth it — lunch included, comfortable pace, and we still saw eagles and the fish farm.&rdquo;</p>
+            <p class="review-card__meta">— Couple · shared 4h</p>
+          </article>
+          <article class="review-card reveal-on-scroll">
+            <div class="review-card__stars" aria-hidden="true">★★★★☆</div>
+            <p class="review-card__text">&ldquo;Snorkeling add-on was smooth; they pointed us to Facebook for the best tide days — water was beautiful.&rdquo;</p>
+            <p class="review-card__meta">— Friends group · charter + snorkel</p>
+          </article>
+        </div>
+        <div class="faq faq-bottom reveal-on-scroll">
+          <h3>Frequently asked questions</h3>
+          <details><summary>Are tours suitable for children or seniors?</summary><p>Yes — tell us your group size and pace; we often recommend 2–3 hour private trips for a more relaxed rhythm.</p></details>
+          <details><summary>When is the best time for snorkeling?</summary><p>Tides and weather change through the year; see the notice bar above or <a href="#snorkel-dates">our Facebook page</a> for suggested dates.</p></details>
+          <details><summary>Do I need to pay a deposit?</summary><p>Chat on WhatsApp — we explain deposit or full payment depending on the package and peak dates.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <div class="pkg-modal" id="pkg-modal" aria-hidden="true">
+      <div class="pkg-modal__backdrop" data-close-pkg tabindex="-1"></div>
+      <div class="pkg-modal__panel" role="dialog" aria-modal="true" aria-labelledby="pkg-modal-title">
+        <button type="button" class="pkg-modal__close" data-close-pkg aria-label="Close dialog">×</button>
+        <h2 class="pkg-modal__title" id="pkg-modal-title"></h2>
+        <p class="pkg-modal__meta" id="pkg-modal-meta"></p>
+        <div class="pkg-modal__cols">
+          <div>
+            <h4>What’s included</h4>
+            <ul id="pkg-modal-includes"></ul>
+          </div>
+          <div>
+            <h4>What’s not included</h4>
+            <ul id="pkg-modal-excludes"></ul>
+          </div>
+        </div>
+        <form class="pkg-modal__form" id="pkg-modal-form" novalidate>
+          <div class="pkg-modal__field">
+            <label for="pkg-date">Date</label>
+            <input type="date" id="pkg-date" name="date" required />
+          </div>
+          <div class="pkg-modal__field">
+            <label for="pkg-time">Time</label>
+            <input type="time" id="pkg-time" name="time" required />
+          </div>
+          <div class="pkg-modal__field">
+            <label for="pkg-pax">Pax</label>
+            <input type="number" id="pkg-pax" name="pax" min="1" max="16" value="2" required />
+          </div>
+        </form>
+        <a class="btn btn--book" id="pkg-modal-book" href="#" target="_blank" rel="noopener noreferrer">Book now</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="site-footer__brand">SeaHorse Langkawi</p>
+      <div class="site-footer__links">
+        <a href="https://www.wasap.my/60175145423mangrove_murah" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://www.facebook.com/Mangrove-tour-murah-langkawi-103870957739320/" target="_blank" rel="noopener noreferrer">Facebook</a>
+      </div>
+      <p class="site-footer__copy">© <span id="y"></span> SeaHorse Langkawi · Departing Tanjung Rhu</p>
+    </div>
+  </footer>
+
+  <a class="fab" href="https://www.wasap.my/60175145423mangrove_murah" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script>
+(function () {
+  var yEl = document.getElementById("y");
+  if (yEl) {
+    yEl.textContent = String(new Date().getFullYear());
+  }
+
+  var header = document.querySelector(".site-header");
+  var links = document.querySelectorAll(".site-nav__link[href^='#']");
+
+  function onScroll() {
+    if (!header) return;
+    var html = document.documentElement;
+    var inHeroTop = window.scrollY < 56;
+    html.classList.toggle("header-on-hero", inHeroTop);
+    var solid = !inHeroTop && window.scrollY > 8;
+    header.classList.toggle("site-header--scrolled", solid);
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  var sections = [
+    { id: "hero", href: "#hero" },
+    { id: "about", href: "#about" },
+    { id: "mangrove", href: "#mangrove" },
+    { id: "lain", href: "#lain" },
+    { id: "reviews-faq", href: "#reviews-faq" }
+  ];
+
+  function setNavActive() {
+    var y = window.scrollY + 100;
+    var activeHref = "#hero";
+    for (var i = sections.length - 1; i >= 0; i--) {
+      var el = document.getElementById(sections[i].id);
+      if (el && el.offsetTop <= y) {
+        activeHref = sections[i].href;
+        break;
+      }
+    }
+    links.forEach(function (a) {
+      var h = a.getAttribute("href") || "";
+      if (h.startsWith("#") && sections.some(function (s) { return s.href === h; })) {
+        a.classList.toggle("site-nav__link--active", h === activeHref);
+      }
+    });
+  }
+
+  window.addEventListener("scroll", setNavActive, { passive: true });
+  setNavActive();
+
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) {
+            en.target.classList.add("is-revealed");
+            io.unobserve(en.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -32px 0px" }
+    );
+    document.querySelectorAll(".reveal-on-scroll").forEach(function (el) {
+      io.observe(el);
+    });
+  } else {
+    document.querySelectorAll(".reveal-on-scroll").forEach(function (el) {
+      el.classList.add("is-revealed");
+    });
+  }
+
+  (function initHeroSlider() {
+    var root = document.querySelector("[data-hero-slider]");
+    if (!root) return;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var layers = root.querySelectorAll(".hero__bg-layer");
+    var cards = root.querySelectorAll("[data-hero-slide]");
+    var headline = document.getElementById("hero-slide-headline");
+    var lead = document.getElementById("hero-slide-lead");
+    var curEl = document.getElementById("hero-slide-current");
+    var totalEl = document.getElementById("hero-slide-total");
+    var track = document.getElementById("hero-carousel-track");
+    var railStops = root.querySelectorAll("[data-hero-rail]");
+    var n = layers.length;
+    var idx = 0;
+    var autoplayMs = reduce ? 0 : 5600;
+    var timer;
+
+    var SLIDE_COPY = [
+      {
+        title: "KILIM",
+        lead:
+          "UNESCO mangrove forests, eagle feeding & calm river cruises — depart from Tanjung Rhu."
+      },
+      {
+        title: "TANJUNG RHU",
+        lead:
+          "Powder beaches & turquoise shallows — the jump-off point for mangrove charters & island days."
+      },
+      {
+        title: "ANDAMAN",
+        lead:
+          "Open-water stretches toward islands & snorkel spots — clear blues on calm days."
+      },
+      {
+        title: "DAYANG BUNTING LAKE",
+        lead:
+          "Freshwater lake views framed by limestone hills — one of Langkawi's most iconic island stops."
+      }
+    ];
+
+    if (totalEl && n) totalEl.textContent = String(n).padStart(2, "0");
+
+    function scrollCardIntoView() {
+      if (!track || !cards[idx]) return;
+      var card = cards[idx];
+      var left = card.offsetLeft - (track.clientWidth - card.offsetWidth) / 2;
+      track.scrollTo({
+        left: Math.max(0, left),
+        behavior: reduce ? "auto" : "smooth"
+      });
+    }
+
+    function apply(i) {
+      idx = (i + n) % n;
+      layers.forEach(function (el, j) {
+        el.classList.toggle("is-active", j === idx);
+      });
+      cards.forEach(function (el, j) {
+        var on = j === idx;
+        el.classList.toggle("is-active", on);
+        el.setAttribute("aria-selected", on ? "true" : "false");
+      });
+      if (headline && SLIDE_COPY[idx]) headline.textContent = SLIDE_COPY[idx].title;
+      if (lead && SLIDE_COPY[idx]) lead.textContent = SLIDE_COPY[idx].lead;
+      if (curEl) curEl.textContent = String(idx + 1).padStart(2, "0");
+      railStops.forEach(function (btn, j) {
+        btn.classList.toggle("is-active", j === idx);
+      });
+      root.querySelectorAll(".hero-card__dots").forEach(function (row) {
+        row.querySelectorAll("span").forEach(function (dot, j) {
+          dot.classList.toggle("is-active", j === idx);
+        });
+      });
+      scrollCardIntoView();
+    }
+
+    function next() {
+      apply(idx + 1);
+    }
+
+    function prev() {
+      apply(idx - 1);
+    }
+
+    function armAutoplay() {
+      if (!autoplayMs) return;
+      clearInterval(timer);
+      timer = setInterval(next, autoplayMs);
+    }
+
+    cards.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var si = btn.getAttribute("data-hero-slide");
+        if (si == null) return;
+        apply(parseInt(si, 10));
+        armAutoplay();
+      });
+    });
+
+    railStops.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var ri = btn.getAttribute("data-hero-rail");
+        if (ri == null) return;
+        apply(parseInt(ri, 10));
+        armAutoplay();
+      });
+    });
+
+    root.querySelectorAll("[data-hero-dir]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        if (btn.getAttribute("data-hero-dir") === "prev") prev();
+        else next();
+        armAutoplay();
+      });
+    });
+
+    apply(0);
+    armAutoplay();
+  })();
+
+  var PACKAGE_DATA = {
+    "tour-2h": {
+      title: "Mangrove cruise",
+      meta: "2 hours · private charter · Tanjung Rhu · 1–8 guests",
+      priceLabel: "RM270 / boat",
+      includes: ["Mangrove cruise in Kilim", "Eagle & monkey feeding", "Crocodile cave & bat cave", "Kilim Geopark island", "Andaman sea cruise", "Fish farm"],
+      excludes: ["Hotel pickup / drop-off unless stated when you book", "Meals unless we confirm otherwise on WhatsApp", "Personal insurance & miscellaneous"]
+    },
+    "tour-3h": {
+      title: "Full mangrove",
+      meta: "3 hours · one boat charter · Tanjung Rhu · 1–8 guests",
+      priceLabel: "RM330 / boat",
+      includes: ["Everything in the 2-hour route", "Swimming (when safe)", "Fish farm", "Floating restaurant"],
+      excludes: ["Snorkeling gear unless add-on discussed", "Hotel transfers unless stated", "Personal expenses"]
+    },
+    "tour-4h": {
+      title: "Mangrove + snorkeling",
+      meta: "4 hours · boat charter · snorkeling · 1–8 guests",
+      priceLabel: "RM380 / boat",
+      includes: ["Full mangrove highlights", "Andaman sea stretch", "Fish farm & coral fish feeding", "Pulau Dangli & big bat watching", "Swimming & floating restaurant", "Snorkeling session"],
+      excludes: ["Extra rental not discussed on WhatsApp", "Hotel transfers unless stated", "Travel insurance"]
+    },
+    island: {
+      title: "Island hopping",
+      meta: "3–4 hours · boat charter · 1–8 guests",
+      priceLabel: "RM380 / boat",
+      includes: ["Tasik Dayang Bunting", "Pulau Beras Basah", "Eagle feeding"],
+      excludes: ["Meals unless stated", "Jetty transfers unless confirmed", "Personal expenses"]
+    },
+    atv: {
+      title: "ATV tour",
+      meta: "90 minutes · 1 ATV unit",
+      priceLabel: "RM150 / unit",
+      includes: ["Tasik Telawak", "Village ride", "Durian Perangin waterfall"],
+      excludes: ["Hotel pickup unless arranged", "Fuel / damage deposit if applicable", "Personal insurance"]
+    },
+    snorkel: {
+      title: "Snorkeling · 2 hours · 1 stop",
+      meta: "Pulau Dangli · 1–8 guests",
+      priceLabel: "RM250 / boat",
+      includes: ["Boat trip to Pulau Dangli (1 stop)", "Snorkeling time as per package"],
+      excludes: ["Extra hours (RM60/hour after package time)", "Best tide dates — check Facebook notice", "Equipment details — confirm on WhatsApp"]
+    },
+    "snorkel-4h": {
+      title: "Snorkeling · 4 hours · 2 stops",
+      meta: "Pulau Dangli · Teluk Datai · 1–8 guests",
+      priceLabel: "RM500 / boat",
+      includes: ["Two snorkel stops on route", "Extended sea time vs 2h package"],
+      excludes: ["Extra hours (RM60/hour)", "Seasonal dates — see Facebook", "Gear / add-ons unless confirmed"]
+    },
+    fishing: {
+      title: "Fun fishing",
+      meta: "4 hours · up to 4 guests",
+      priceLabel: "RM650 / trip",
+      includes: ["Bottom fishing", "Trolling"],
+      excludes: ["More than 4 guests on this price", "Licences or special permits if required", "Catch guarantee (nature dependent)"]
+    }
+  };
+
+  var pkgModal = document.getElementById("pkg-modal");
+  var pkgForm = document.getElementById("pkg-modal-form");
+  var pkgBook = document.getElementById("pkg-modal-book");
+  var currentPkgKey = "";
+
+  function fillList(id, items) {
+    var ul = document.getElementById(id);
+    if (!ul) return;
+    ul.innerHTML = "";
+    (items || []).forEach(function (t) {
+      var li = document.createElement("li");
+      li.textContent = t;
+      ul.appendChild(li);
+    });
+  }
+
+  function openPackageModal(key) {
+    var data = PACKAGE_DATA[key];
+    if (!data || !pkgModal) return;
+    currentPkgKey = key;
+    var titleEl = document.getElementById("pkg-modal-title");
+    var metaEl = document.getElementById("pkg-modal-meta");
+    if (titleEl) titleEl.textContent = data.title;
+    if (metaEl) metaEl.textContent = data.meta + " · " + data.priceLabel;
+    fillList("pkg-modal-includes", data.includes);
+    fillList("pkg-modal-excludes", data.excludes);
+    var paxEl = document.getElementById("pkg-pax");
+    if (paxEl) {
+      paxEl.max = key === "fishing" ? "4" : "8";
+      var pv = parseInt(paxEl.value, 10);
+      var pm = parseInt(paxEl.max, 10);
+      if (!isNaN(pv) && !isNaN(pm) && pv > pm) paxEl.value = String(pm);
+    }
+    var d = document.getElementById("pkg-date");
+    var t = document.getElementById("pkg-time");
+    if (d && !d.value) {
+      var dt = new Date();
+      dt.setDate(dt.getDate() + 1);
+      d.value = dt.toISOString().slice(0, 10);
+    }
+    if (t && !t.value) t.value = "09:00";
+    pkgModal.classList.add("is-open");
+    pkgModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    setTimeout(function () {
+      if (d) d.focus();
+    }, 80);
+  }
+
+  function closePackageModal() {
+    if (!pkgModal) return;
+    pkgModal.classList.remove("is-open");
+    pkgModal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    currentPkgKey = "";
+  }
+
+  function buildWhatsAppLink() {
+    var data = PACKAGE_DATA[currentPkgKey];
+    if (!data || !pkgForm) return "#";
+    var fd = new FormData(pkgForm);
+    var date = (fd.get("date") || "").trim();
+    var time = (fd.get("time") || "").trim();
+    var pax = (fd.get("pax") || "").trim();
+    if (!date || !time || !pax) return "#";
+    var text = [
+      "Hi SeaHorse Langkawi — booking request:",
+      "",
+      "Package: " + data.title,
+      "Reference price: " + data.priceLabel,
+      "Preferred date: " + date,
+      "Preferred time: " + time,
+      "Pax: " + pax,
+      "",
+      "Thank you!"
+    ].join("\n");
+    return "https://wa.me/60175145423?text=" + encodeURIComponent(text);
+  }
+
+  document.querySelectorAll("[data-open-pkg]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var key = btn.getAttribute("data-open-pkg");
+      if (key) openPackageModal(key);
+    });
+  });
+
+  document.querySelectorAll("[data-close-pkg]").forEach(function (el) {
+    el.addEventListener("click", function () {
+      closePackageModal();
+    });
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && pkgModal && pkgModal.classList.contains("is-open")) {
+      closePackageModal();
+    }
+  });
+
+  if (pkgBook) {
+    pkgBook.addEventListener("click", function (e) {
+      if (!pkgForm || !currentPkgKey) return;
+      if (!pkgForm.checkValidity()) {
+        e.preventDefault();
+        pkgForm.reportValidity();
+        return;
+      }
+      e.preventDefault();
+      window.open(buildWhatsAppLink(), "_blank", "noopener,noreferrer");
+    });
+  }
+
+  document.querySelectorAll(".pkg-filters__pill[data-pkg-filter]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var scope = btn.closest(".pkg-toolbar");
+      if (!scope || scope.getAttribute("data-pkg-scope") !== "mangrove") return;
+      var f = btn.getAttribute("data-pkg-filter") || "all";
+      scope.querySelectorAll(".pkg-filters__pill").forEach(function (b) {
+        b.classList.toggle("is-active", b === btn);
+      });
+      document.querySelectorAll("#mangrove [data-pkg-dur]").forEach(function (card) {
+        var dur = card.getAttribute("data-pkg-dur");
+        var show = f === "all" || dur === f;
+        card.classList.toggle("is-filtered-out", !show);
+      });
+    });
+  });
+
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var finePointer = window.matchMedia("(pointer: fine)").matches;
+  if (!reduceMotion && finePointer) {
+    document.querySelectorAll(".card:not(.card--pop3d):not(.card--package)").forEach(function (card) {
+      card.addEventListener("mousemove", function (e) {
+        var r = card.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - 0.5;
+        var y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform =
+          "perspective(920px) rotateY(" +
+          (x * 10).toFixed(2) +
+          "deg) rotateX(" +
+          (-y * 7).toFixed(2) +
+          "deg) translateZ(0)";
+      });
+      card.addEventListener("mouseleave", function () {
+        card.style.transform = "";
+      });
+    });
+  }
+})();
+
+  </script>
+</body>
+</html>
