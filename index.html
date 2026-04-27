@@ -161,14 +161,82 @@
 
     .nav-toggle {
       display: none;
-      width: 42px; height: 42px;
-      border-radius: 10px;
+      width: 48px; height: 48px;
+      border-radius: 12px;
       background: rgba(255,255,255,0.18);
       border: 1px solid rgba(255,255,255,0.35);
       color: var(--white);
       align-items: center; justify-content: center;
+      transition: background 0.2s, border-color 0.2s;
     }
-    .scrolled .nav-toggle { background: var(--ink); border-color: var(--ink); }
+    .nav-toggle:active { transform: scale(0.94); }
+    .scrolled .nav-toggle {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--white);
+    }
+    .nav-toggle .icon-close { display: none; }
+    .nav-toggle.is-open .icon-open { display: none; }
+    .nav-toggle.is-open .icon-close { display: block; }
+
+    /* Mobile menu drawer (only used on small screens) */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 99;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      box-shadow: 0 18px 50px rgba(15,23,42,0.12);
+      padding: 90px 24px 28px;
+      transform: translateY(-100%);
+      transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .mobile-menu.is-open { transform: translateY(0); }
+    .mobile-menu-list {
+      list-style: none;
+      margin: 0; padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .mobile-menu-list a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 18px;
+      min-height: 56px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 17px;
+      color: var(--ink);
+      border-radius: 14px;
+      transition: background 0.18s;
+    }
+    .mobile-menu-list a:active { background: var(--sky-100); }
+    .mobile-menu-list a:hover { background: var(--sky-50); }
+    .mobile-menu-list a svg {
+      width: 18px; height: 18px;
+      color: var(--ink-muted);
+    }
+    .mobile-menu-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+      padding: 16px 22px;
+      min-height: 56px;
+      background: var(--primary);
+      color: var(--white) !important;
+      border-radius: 14px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .mobile-menu-cta:active { background: var(--primary-deep); }
+    .mobile-menu-cta svg { color: var(--white) !important; }
 
     /* ─── HERO ─── */
     .hero {
@@ -442,28 +510,31 @@
       max-width: var(--max);
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 22px;
     }
     .tour-card {
       position: relative;
       border-radius: var(--radius-lg);
       overflow: hidden;
-      aspect-ratio: 3/4;
+      aspect-ratio: 3 / 4;
       cursor: pointer;
       box-shadow: var(--shadow-card);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
-    /* Flagship card — spans 2 columns, wider landscape aspect */
+    /* Flagship card — spans full row, very wide cinematic */
     .tour-card--flagship {
-      grid-column: span 2;
-      aspect-ratio: 16 / 10;
+      grid-column: 1 / -1;
+      aspect-ratio: 24 / 9;
     }
-    .tour-card--flagship .tour-name { font-size: 30px; }
-    .tour-card--flagship .tour-meta { font-size: 13.5px; }
+    .tour-card--flagship .tour-name { font-size: 36px; }
+    .tour-card--flagship .tour-meta { font-size: 14px; }
     .tour-card--flagship .tour-pill { font-size: 11.5px; padding: 5px 12px; }
-    .tour-card--flagship .tour-arrow { width: 48px; height: 48px; }
-    .tour-card--flagship .tour-arrow svg { width: 18px; height: 18px; }
+    .tour-card--flagship .tour-arrow { width: 52px; height: 52px; }
+    .tour-card--flagship .tour-arrow svg { width: 20px; height: 20px; }
+    .tour-card--flagship .tour-info {
+      left: 28px; right: 28px; bottom: 28px;
+    }
     .tour-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 30px 60px rgba(15,23,42,0.18);
@@ -482,13 +553,15 @@
 
     /* 3D tilt on tour cards — desktop only, controlled by JS */
     .tour-card { transform-style: preserve-3d; }
-    .tour-card img {
+    .tour-card img,
+    .tour-card video {
       position: absolute; inset: 0;
       width: 100%; height: 100%;
       object-fit: cover;
       transition: transform 0.6s ease;
     }
-    .tour-card:hover img { transform: scale(1.06); }
+    .tour-card:hover img,
+    .tour-card:hover video { transform: scale(1.06); }
 
     /* Slider inside each tour card */
     .tour-slider {
@@ -1281,6 +1354,97 @@
       line-height: 1.6;
     }
 
+    /* ─── CREDENTIALS / SSM LICENSE ─── */
+    .credentials {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 24px var(--pad-x) 60px;
+    }
+    .credentials-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 24px;
+      box-shadow: var(--shadow-soft);
+    }
+    .credentials-icon {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--sky-100), var(--primary-soft));
+      color: var(--primary-deep);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .credentials-icon svg { width: 28px; height: 28px; }
+    .credentials-body { min-width: 0; }
+    .credentials-eyebrow {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin: 0 0 6px;
+    }
+    .credentials-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      margin: 0 0 4px;
+    }
+    .credentials-text {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .credentials-text strong {
+      color: var(--ink);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .credentials-badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .cred-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: var(--sky-50);
+      border: 1px solid var(--sky-200);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--primary-deep);
+      white-space: nowrap;
+    }
+    .cred-badge svg { width: 14px; height: 14px; }
+    @media (max-width: 720px) {
+      .credentials-card {
+        grid-template-columns: auto 1fr;
+        gap: 16px 18px;
+        padding: 22px;
+      }
+      .credentials-badges {
+        grid-column: 1 / -1;
+        justify-content: flex-start;
+        margin-top: 4px;
+      }
+      .credentials-title { font-size: 16px; }
+      .credentials-text { font-size: 13px; }
+    }
+
     /* ─── FOOTER ─── */
     .site-footer {
       background: var(--ink);
@@ -1403,6 +1567,73 @@
       font-size: 13.5px;
       margin: 0 0 24px;
     }
+
+    /* Boat-size selector — secondary tier for Mangrove */
+    .boat-row {
+      margin: -10px 0 26px;
+      padding: 16px;
+      background: var(--sky-50);
+      border-radius: 14px;
+      border: 1px solid var(--sky-100);
+    }
+    .boat-row[hidden] { display: none; }
+    .boat-row-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--ink-soft);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+    }
+    .boat-row-label svg {
+      width: 16px; height: 16px;
+      color: var(--primary);
+    }
+    .boat-pills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .boat-pill {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      padding: 12px 8px;
+      min-height: 64px;
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      background: var(--white);
+      font-family: inherit;
+      transition: all 0.18s;
+      text-align: center;
+    }
+    .boat-pill:hover {
+      border-color: var(--sky-300);
+    }
+    .boat-pill.is-active {
+      border-color: var(--primary);
+      background: var(--primary-soft);
+      box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.12);
+    }
+    .boat-pill-cap {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .boat-pill-price {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--primary-deep);
+    }
+    .boat-pill:active { transform: scale(0.96); }
 
     /* Multi-option selector inside modal */
     .modal-options {
@@ -1566,7 +1797,8 @@
     @media (max-width: 980px) {
       .features-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
       .tours-grid    { grid-template-columns: repeat(2, 1fr); }
-      .tour-card--flagship { grid-column: 1 / -1; aspect-ratio: 16 / 10; }
+      .tour-card--flagship { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
+      .tour-card--flagship .tour-name { font-size: 28px; }
       .more-grid     { grid-template-columns: repeat(2, 1fr); }
       .reviews-grid  { grid-template-columns: 1fr; }
       .quality-inner { grid-template-columns: 1fr; gap: 30px; text-align: center; }
@@ -1587,6 +1819,9 @@
       .footer-inner { grid-template-columns: 1fr 1fr; }
       .nav { display: none; }
       .nav-toggle { display: flex; }
+      .mobile-menu { display: block; }
+      /* Hide top-right WhatsApp pill on mobile — it's now in the drawer */
+      .header-inner > .cta-btn { display: none; }
       .book-bar {
         grid-template-columns: 1fr;
         gap: 0;
@@ -1604,6 +1839,7 @@
       .features-grid { grid-template-columns: 1fr 1fr; }
       .tours-grid    { grid-template-columns: 1fr; }
       .tour-card--flagship { aspect-ratio: 4 / 5; }
+      .tour-card--flagship .tour-name { font-size: 24px; }
       .more-grid     { grid-template-columns: 1fr; }
       .footer-inner  { grid-template-columns: 1fr; gap: 28px; }
       .modal-panel { padding: 24px; }
@@ -1679,9 +1915,24 @@
         <a class="nav-link" href="#reviews">Reviews</a>
       </nav>
       <a class="cta-btn" href="https://www.wasap.my/60175145423mangrove_murah" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg class="icon-open" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M6 18L18 6"/></svg>
       </button>
+    </div>
+    <!-- Mobile menu drawer -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <ul class="mobile-menu-list">
+        <li><a href="#tours">Tours <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a></li>
+        <li><a href="#about">About <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a></li>
+        <li><a href="#gallery">Gallery <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a></li>
+        <li><a href="#watch">Watch <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a></li>
+        <li><a href="#reviews">Reviews <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a></li>
+      </ul>
+      <a class="mobile-menu-cta" href="https://www.wasap.my/60175145423mangrove_murah" target="_blank" rel="noopener noreferrer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.2-.7.1s-.8 1-1 1.2-.3.2-.6.1-1.3-.5-2.4-1.5c-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5s0-.4 0-.5c0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3M12 21.8h-.0c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.7-.2-.4c-1-1.6-1.5-3.4-1.5-5.3 0-5.5 4.4-9.9 9.9-9.9 2.6 0 5.1 1 7 2.9 1.9 1.9 2.9 4.4 2.9 7-.0 5.5-4.4 9.9-9.9 9.9m8.4-18.3A11.8 11.8 0 0 0 12 0C5.5 0 .2 5.3.2 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.3-1.7a11.9 11.9 0 0 0 5.7 1.4h0c6.6 0 11.9-5.3 11.9-11.9a11.8 11.8 0 0 0-3.5-8.4z"/></svg>
+        Chat on WhatsApp
+      </a>
     </div>
   </header>
 
@@ -1714,12 +1965,12 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
             </span>
             <select id="bk-tour">
-              <option value="mangrove-tours:0">Mangrove · 2h cruise (RM300)</option>
-              <option value="mangrove-tours:1">Mangrove · 3h full (RM350)</option>
-              <option value="mangrove-tours:2">Mangrove · 4h + snorkel (RM400)</option>
+              <option value="mangrove-tours:0">Mangrove · 2h cruise (from RM300)</option>
+              <option value="mangrove-tours:1">Mangrove · 3h full (from RM350)</option>
+              <option value="mangrove-tours:2">Mangrove · 4h + snorkel (from RM400)</option>
               <option value="island">Island hopping (RM370)</option>
-              <option value="snorkel-4h">Snorkeling · 4h (RM500)</option>
-              <option value="snorkel">Snorkeling · 2h (RM250)</option>
+              <option value="snorkel-tours:0">Snorkeling · 2h (RM250)</option>
+              <option value="snorkel-tours:1">Snorkeling · 4h (RM500)</option>
               <option value="atv">ATV tour (RM150)</option>
             </select>
           </label>
@@ -1811,8 +2062,8 @@
       <div class="tours-grid" id="tours-grid">
         <article class="tour-card tour-card--flagship reveal" data-cat="mangrove" data-pkg="mangrove-tours">
           <div class="tour-slider">
-            <img class="ts-slide is-active" src="image/mangrovecruise.jpg" alt="Mangrove tours from Tanjung Rhu" loading="lazy" />
-            <img class="ts-slide" src="image/fullmangrove.webp" alt="" loading="lazy" />
+            <video class="ts-slide is-active" src="image/mangrove.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Mangrove tours from Tanjung Rhu"></video>
+            <video class="ts-slide" src="image/mangrove2.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
             <img class="ts-slide" src="image/snorkelling.jpg" alt="" loading="lazy" />
             <img class="ts-slide" src="image/kilim.jpg" alt="" loading="lazy" />
           </div>
@@ -1826,29 +2077,6 @@
               <span class="tour-meta">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
                 2h / 3h / 4h · from RM300
-              </span>
-            </div>
-            <span class="tour-arrow" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </span>
-          </div>
-        </article>
-
-        <article class="tour-card reveal" data-cat="snorkel" data-pkg="snorkel-4h">
-          <div class="tour-slider">
-            <img class="ts-slide is-active" src="image/snorkelling3.jpg" alt="Snorkeling 4h tour" loading="lazy" />
-            <img class="ts-slide" src="image/snorkelling.jpg" alt="" loading="lazy" />
-            <img class="ts-slide" src="image/andaman.jpg" alt="" loading="lazy" />
-          </div>
-          <div class="tour-dots" aria-hidden="true">
-            <span class="is-active"></span><span></span><span></span>
-          </div>
-          <div class="tour-info">
-            <div>
-              <h3 class="tour-name">Snorkeling · 4h</h3>
-              <span class="tour-meta">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-                2 stops · from RM500
               </span>
             </div>
             <span class="tour-arrow" aria-hidden="true">
@@ -1880,34 +2108,11 @@
           </div>
         </article>
 
-        <article class="tour-card reveal" data-cat="snorkel" data-pkg="snorkel">
-          <div class="tour-slider">
-            <img class="ts-slide is-active" src="image/snorkelling2.jpg" alt="Snorkeling 2h tour" loading="lazy" />
-            <img class="ts-slide" src="image/snorkelling.jpg" alt="" loading="lazy" />
-            <img class="ts-slide" src="image/andaman.jpg" alt="" loading="lazy" />
-          </div>
-          <div class="tour-dots" aria-hidden="true">
-            <span class="is-active"></span><span></span><span></span>
-          </div>
-          <div class="tour-info">
-            <div>
-              <h3 class="tour-name">Snorkeling · 2h</h3>
-              <span class="tour-meta">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-                1 stop · from RM250
-              </span>
-            </div>
-            <span class="tour-arrow" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </span>
-          </div>
-        </article>
-
         <article class="tour-card reveal" data-cat="adventure" data-pkg="atv">
           <div class="tour-slider">
-            <img class="ts-slide is-active" src="image/atv.jpg" alt="ATV tour Langkawi" loading="lazy" />
-            <img class="ts-slide" src="image/kilim.jpg" alt="" loading="lazy" />
-            <img class="ts-slide" src="image/dayang%20bunting%20.jpg" alt="" loading="lazy" />
+            <img class="ts-slide is-active" src="image/atv-1.png" alt="ATV tour Langkawi" loading="lazy" />
+            <img class="ts-slide" src="image/atv-2.png" alt="" loading="lazy" />
+            <img class="ts-slide" src="image/atv-3.png" alt="" loading="lazy" />
           </div>
           <div class="tour-dots" aria-hidden="true">
             <span class="is-active"></span><span></span><span></span>
@@ -1918,6 +2123,31 @@
               <span class="tour-meta">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
                 90 minutes · from RM150
+              </span>
+            </div>
+            <span class="tour-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+        </article>
+
+        <article class="tour-card tour-card--flagship reveal" data-cat="snorkel" data-pkg="snorkel-tours">
+          <div class="tour-slider">
+            <img class="ts-slide is-active" src="image/snorkelling3.jpg" alt="Snorkeling tours" loading="lazy" />
+            <img class="ts-slide" src="image/snorkelling2.jpg" alt="" loading="lazy" />
+            <img class="ts-slide" src="image/snorkelling.jpg" alt="" loading="lazy" />
+            <img class="ts-slide" src="image/andaman.jpg" alt="" loading="lazy" />
+          </div>
+          <div class="tour-dots" aria-hidden="true">
+            <span class="is-active"></span><span></span><span></span><span></span>
+          </div>
+          <div class="tour-info">
+            <div>
+              <span class="tour-pill">2 options</span>
+              <h3 class="tour-name">Snorkeling Tours</h3>
+              <span class="tour-meta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                2h / 4h · from RM250
               </span>
             </div>
             <span class="tour-arrow" aria-hidden="true">
@@ -2026,16 +2256,40 @@
             <div class="gal-item gal-item--reg"><img src="image/islandhopping.jpg" alt="Island hopping" loading="lazy"/></div>
             <div class="gal-item gal-item--wide"><img src="image/dayang%20bunting%20.jpg" alt="Dayang Bunting lake" loading="lazy"/></div>
             <div class="gal-item gal-item--sq"><img src="image/snorkelling2.jpg" alt="Snorkeling at Dangli" loading="lazy"/></div>
-            <div class="gal-item gal-item--reg"><img src="image/atv.jpg" alt="ATV ride Langkawi" loading="lazy"/></div>
+            <div class="gal-item gal-item--reg"><img src="image/atv-1.png" alt="ATV ride through plantation trail" loading="lazy"/></div>
+            <div class="gal-item gal-item--wide"><img src="image/atv-2.png" alt="ATV group Langkawi" loading="lazy"/></div>
+            <div class="gal-item gal-item--sq"><img src="image/atv-3.png" alt="ATV forest trail Langkawi" loading="lazy"/></div>
             <div class="gal-item gal-item--wide"><img src="image/snorkelling3.jpg" alt="Snorkeling 4 hour tour" loading="lazy"/></div>
             <div class="gal-item gal-item--sq"><img src="image/fishing.jpg" alt="Fun fishing" loading="lazy"/></div>
+            <div class="gal-item gal-item--reg"><img src="image/gallery-mangrove-1.png" alt="Mudskipper in mangrove mud" loading="lazy"/></div>
+            <div class="gal-item gal-item--wide"><img src="image/gallery-mangrove-2.png" alt="Dusky leaf monkey in mangrove trees" loading="lazy"/></div>
+            <div class="gal-item gal-item--sq"><img src="image/gallery-mangrove-3.png" alt="Eagle flying over Langkawi mangrove" loading="lazy"/></div>
+            <div class="gal-item gal-item--wide"><img src="image/gallery-mangrove-4.png" alt="Brahminy kites hunting over water" loading="lazy"/></div>
+            <div class="gal-item gal-item--reg"><img src="image/gallery-mangrove-5.png" alt="Monkey near limestone cave walkway" loading="lazy"/></div>
+            <div class="gal-item gal-item--wide"><img src="image/gallery-mangrove-6.png" alt="Inside a mangrove cave passage" loading="lazy"/></div>
+            <div class="gal-item gal-item--sq"><img src="image/gallery-mangrove-7.png" alt="Aerial view of Kilim mangrove channel" loading="lazy"/></div>
+            <div class="gal-item gal-item--reg"><img src="image/gallery-mangrove-8.png" alt="Snorkeling stop in clear green water" loading="lazy"/></div>
+            <div class="gal-item gal-item--wide"><img src="image/gallery-mangrove-9.png" alt="Family group on tour boat" loading="lazy"/></div>
+            <div class="gal-item gal-item--sq"><img src="image/gallery-mangrove-10.png" alt="Boat route through mangrove cliffs" loading="lazy"/></div>
             <!-- ── Set 2 (duplicate) ── -->
             <div class="gal-item gal-item--reg" aria-hidden="true"><img src="image/islandhopping.jpg" alt="" loading="lazy"/></div>
             <div class="gal-item gal-item--wide" aria-hidden="true"><img src="image/dayang%20bunting%20.jpg" alt="" loading="lazy"/></div>
             <div class="gal-item gal-item--sq" aria-hidden="true"><img src="image/snorkelling2.jpg" alt="" loading="lazy"/></div>
-            <div class="gal-item gal-item--reg" aria-hidden="true"><img src="image/atv.jpg" alt="" loading="lazy"/></div>
+            <div class="gal-item gal-item--reg" aria-hidden="true"><img src="image/atv-1.png" alt="" loading="lazy"/></div>
+            <div class="gal-item gal-item--wide" aria-hidden="true"><img src="image/atv-2.png" alt="" loading="lazy"/></div>
+            <div class="gal-item gal-item--sq" aria-hidden="true"><img src="image/atv-3.png" alt="" loading="lazy"/></div>
             <div class="gal-item gal-item--wide" aria-hidden="true"><img src="image/snorkelling3.jpg" alt="" loading="lazy"/></div>
             <div class="gal-item gal-item--sq" aria-hidden="true"><img src="image/fishing.jpg" alt="" loading="lazy"/></div>
+            <div class="gal-item gal-item--reg" aria-hidden="true"><img src="image/gallery-mangrove-1.png" alt="" loading="lazy"/></div>
+            <div class="gal-item gal-item--wide" aria-hidden="true"><img src="image/gallery-mangrove-2.png" alt="" loading="lazy"/></div>
+            <div class="gal-item gal-item--sq" aria-hidden="true"><img src="image/gallery-mangrove-3.png" alt="" loading="lazy"/></div>
+            <div class="gal-item gal-item--wide" aria-hidden="true"><img src="image/gallery-mangrove-4.png" alt="" loading="lazy"/></div>
+            <div class="gal-item gal-item--reg" aria-hidden="true"><img src="image/gallery-mangrove-5.png" alt="" loading="lazy"/></div>
+            <div class="gal-item gal-item--wide" aria-hidden="true"><img src="image/gallery-mangrove-6.png" alt="" loading="lazy"/></div>
+            <div class="gal-item gal-item--sq" aria-hidden="true"><img src="image/gallery-mangrove-7.png" alt="" loading="lazy"/></div>
+            <div class="gal-item gal-item--reg" aria-hidden="true"><img src="image/gallery-mangrove-8.png" alt="" loading="lazy"/></div>
+            <div class="gal-item gal-item--wide" aria-hidden="true"><img src="image/gallery-mangrove-9.png" alt="" loading="lazy"/></div>
+            <div class="gal-item gal-item--sq" aria-hidden="true"><img src="image/gallery-mangrove-10.png" alt="" loading="lazy"/></div>
           </div>
         </div>
       </div>
@@ -2215,6 +2469,13 @@
       <h2 id="modal-title">Tour</h2>
       <p class="modal-meta" id="modal-meta"></p>
       <div class="modal-options" id="modal-options" hidden></div>
+      <div class="boat-row" id="boat-row" hidden>
+        <p class="boat-row-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18l1.5-3h15L21 18"/><path d="M5 15V9a2 2 0 012-2h10a2 2 0 012 2v6"/><circle cx="9" cy="11" r="0.8" fill="currentColor"/><circle cx="15" cy="11" r="0.8" fill="currentColor"/><path d="M3 21h18"/></svg>
+          Boat capacity
+        </p>
+        <div class="boat-pills" id="boat-pills"></div>
+      </div>
       <div class="modal-cols">
         <div>
           <h4>What's included</h4>
@@ -2245,6 +2506,37 @@
       </button>
     </div>
   </div>
+
+  <!-- ═══ CREDENTIALS / SSM LICENSE ═══ -->
+  <section class="credentials" id="credentials" aria-label="Business credentials">
+    <div class="credentials-card">
+      <div class="credentials-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L3 6v6c0 5 3.8 9.2 9 10 5.2-.8 9-5 9-10V6l-9-4z"/>
+          <path d="M9 12l2 2 4-4"/>
+        </svg>
+      </div>
+      <div class="credentials-body">
+        <p class="credentials-eyebrow">Registered &amp; Licensed</p>
+        <p class="credentials-title">Seahorse Team Ventures</p>
+        <p class="credentials-text">
+          Suruhanjaya Syarikat Malaysia (SSM) registered business ·
+          <strong>Reg. No. XXXXXXXX-X</strong> ·
+          Operating from Tanjung Rhu jetty, Langkawi.
+        </p>
+      </div>
+      <div class="credentials-badges">
+        <span class="cred-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+          SSM Registered
+        </span>
+        <span class="cred-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18l1.5-3h15L21 18"/><path d="M5 15V9a2 2 0 012-2h10a2 2 0 012 2v6"/></svg>
+          Licensed boat operator
+        </span>
+      </div>
+    </div>
+  </section>
 
   <!-- ═══ FOOTER ═══ -->
   <footer class="site-footer">
@@ -2279,7 +2571,7 @@
         </ul>
       </div>
     </div>
-    <p class="footer-copy">© <span id="y"></span> Seahorse Team Ventures · Departing from Tanjung Rhu</p>
+    <p class="footer-copy">© <span id="y"></span> Seahorse Team Ventures (SSM Reg. No. XXXXXXXX-X) · Departing from Tanjung Rhu</p>
   </footer>
 
   <a class="fab" href="https://www.wasap.my/60175145423mangrove_murah" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
@@ -2456,28 +2748,41 @@
       'mangrove-tours': {
         title: 'Mangrove Tours',
         isMulti: true,
+        hasBoats: true,
         options: [
           {
             label: '2 hours',
             subtitle: 'Mangrove cruise — Kilim highlights',
-            price: 'RM300 / boat',
-            meta: '2h · 1 boat charter · 1–8 guests · departing Tanjung Rhu',
+            meta: '2h cruise · departing Tanjung Rhu',
+            boats: [
+              { label: '8 pax',  capacity: 8,  price: 'RM300 / boat', priceNum: 300 },
+              { label: '12 pax', capacity: 12, price: 'RM350 / boat', priceNum: 350 },
+              { label: '18 pax', capacity: 18, price: 'RM400 / boat', priceNum: 400 }
+            ],
             includes: ['Mangrove cruise', 'Eagle feeding', 'Monkey feeding', 'Crocodile cave', 'Bat cave', 'Kilim Geopark island', 'Andaman sea cruise', 'Fish farm', 'Starting from Tanjung Rhu'],
             excludes: ['Hotel pickup unless stated', 'Meals unless confirmed', 'Personal insurance']
           },
           {
             label: '3 hours',
             subtitle: 'Full mangrove + swimming + floating restaurant',
-            price: 'RM350 / boat',
-            meta: '3h · 1 boat charter · 1–8 guests · departing Tanjung Rhu',
+            meta: '3h full tour · departing Tanjung Rhu',
+            boats: [
+              { label: '8 pax',  capacity: 8,  price: 'RM350 / boat', priceNum: 350 },
+              { label: '12 pax', capacity: 12, price: 'RM400 / boat', priceNum: 400 },
+              { label: '18 pax', capacity: 18, price: 'RM450 / boat', priceNum: 450 }
+            ],
             includes: ['Mangrove cruise', 'Eagle feeding', 'Monkey feeding', 'Crocodile cave', 'Bat cave', 'Kilim Geopark island', 'Andaman sea cruise', 'Swimming', 'Fish farm', 'Floating restaurant', 'Starting from Tanjung Rhu'],
             excludes: ['Snorkeling gear unless add-on', 'Hotel transfers unless stated', 'Personal expenses']
           },
           {
             label: '4 hours',
             subtitle: 'Mangrove + snorkeling + Dangli island',
-            price: 'RM400 / boat',
-            meta: '4h · 1 boat charter · 1–8 guests · with snorkeling',
+            meta: '4h with snorkeling',
+            boats: [
+              { label: '8 pax',  capacity: 8,  price: 'RM400 / boat', priceNum: 400 },
+              { label: '12 pax', capacity: 12, price: 'RM450 / boat', priceNum: 450 },
+              { label: '18 pax', capacity: 18, price: 'RM500 / boat', priceNum: 500 }
+            ],
             includes: ['Mangrove cruise', 'Eagle feeding', 'Monkey feeding', 'Crocodile cave', 'Bat cave', 'Kilim Geopark island', 'Andaman sea', 'Fish farm', 'Coral fish feeding', 'Dangli island', 'Big bat watching', 'Swimming', 'Floating restaurant', 'Snorkeling', 'Starting from Tanjung Rhu'],
             excludes: ['Extra rentals unless discussed', 'Hotel transfers unless stated', 'Travel insurance']
           }
@@ -2497,19 +2802,27 @@
         includes: ['Tasik Telawak', 'Ronda kampung (village ride)', 'Durian Perangin waterfall'],
         excludes: ['Hotel pickup unless arranged', 'Damage deposit if applicable', 'Personal insurance']
       },
-      'snorkel': {
-        title: 'Snorkeling · 2 hours · 1 point',
-        meta: 'Pulau Dangli · 1–8 guests · RM250/boat',
-        price: 'RM250 / boat',
-        includes: ['Boat trip to Pulau Dangli (1 point)', 'Snorkeling session'],
-        excludes: ['Extra hours: RM60 / hour', 'Best dates — see Facebook', 'Equipment — confirm on WhatsApp']
-      },
-      'snorkel-4h': {
-        title: 'Snorkeling · 4 hours · 2 points',
-        meta: 'Pulau Dangli + Teluk Datai · 1–8 guests · RM500/boat',
-        price: 'RM500 / boat',
-        includes: ['Pulau Dangli', 'Teluk Datai', 'Two snorkel points · extended sea time'],
-        excludes: ['Extra hours: RM60 / hour', 'Seasonal dates — see Facebook', 'Gear unless confirmed']
+      'snorkel-tours': {
+        title: 'Snorkeling Tours',
+        isMulti: true,
+        options: [
+          {
+            label: '2 hours',
+            subtitle: 'Snorkeling at Pulau Dangli · 1 point',
+            price: 'RM250 / boat',
+            meta: '2h · 1 boat charter · 1–8 guests · 1 snorkel point',
+            includes: ['Pulau Dangli', 'Snorkeling session at 1 point'],
+            excludes: ['Extra hours: RM60 / hour', 'Best dates — see Facebook', 'Equipment — confirm on WhatsApp']
+          },
+          {
+            label: '4 hours',
+            subtitle: 'Snorkeling at Dangli + Teluk Datai · 2 points',
+            price: 'RM500 / boat',
+            meta: '4h · 1 boat charter · 1–8 guests · 2 snorkel points',
+            includes: ['Pulau Dangli', 'Teluk Datai', 'Snorkeling at 2 points · extended sea time'],
+            excludes: ['Extra hours: RM60 / hour', 'Seasonal dates — see Facebook', 'Gear unless confirmed']
+          }
+        ]
       }
     };
 
@@ -2524,8 +2837,11 @@
     var modalTime = document.getElementById('m-time');
     var modalPax = document.getElementById('m-pax');
     var modalBook = document.getElementById('modal-book');
+    var boatRow = document.getElementById('boat-row');
+    var boatPills = document.getElementById('boat-pills');
     var currentPkg = null;
     var currentOptIdx = 0;
+    var currentBoatIdx = 0;
 
     function fillList(ul, items) {
       ul.innerHTML = '';
@@ -2533,6 +2849,55 @@
         var li = document.createElement('li');
         li.textContent = t;
         ul.appendChild(li);
+      });
+    }
+
+    // Refresh price text on each duration button to reflect currently-selected boat
+    function refreshOptionPrices() {
+      var d = PKG[currentPkg];
+      if (!d || !d.isMulti || !d.hasBoats) return;
+      modalOptions.querySelectorAll('.opt-btn').forEach(function (btn, i) {
+        var opt = d.options[i];
+        if (!opt || !opt.boats) return;
+        var b = opt.boats[currentBoatIdx] || opt.boats[0];
+        var priceEl = btn.querySelector('.opt-price');
+        if (priceEl) priceEl.textContent = b.price;
+      });
+    }
+
+    function selectBoat(idx) {
+      var d = PKG[currentPkg];
+      if (!d || !d.hasBoats) return;
+      currentBoatIdx = idx;
+      // Active state on pills
+      boatPills.querySelectorAll('.boat-pill').forEach(function (b, i) {
+        b.classList.toggle('is-active', i === idx);
+      });
+      // Update modal pax-input max to match boat capacity
+      var opt = d.options[currentOptIdx];
+      var b = opt && opt.boats ? opt.boats[idx] : null;
+      if (modalPax && b) {
+        modalPax.max = String(b.capacity);
+        var v = parseInt(modalPax.value, 10);
+        if (!isNaN(v) && v > b.capacity) modalPax.value = String(b.capacity);
+      }
+      // Update prices on duration buttons to reflect this boat tier
+      refreshOptionPrices();
+    }
+
+    function renderBoats(opt) {
+      boatPills.innerHTML = '';
+      if (!opt || !opt.boats) return;
+      opt.boats.forEach(function (b, i) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'boat-pill';
+        btn.setAttribute('data-boat', String(i));
+        btn.innerHTML =
+          '<span class="boat-pill-cap">' + b.label + '</span>' +
+          '<span class="boat-pill-price">' + b.price.replace(' / boat', '') + '</span>';
+        btn.addEventListener('click', function () { selectBoat(i); });
+        boatPills.appendChild(btn);
       });
     }
 
@@ -2549,8 +2914,12 @@
       modalMeta.textContent = opt.meta;
       fillList(modalIncludes, opt.includes);
       fillList(modalExcludes, opt.excludes);
-      // Update pax max if needed (mangrove all 1–8)
-      if (modalPax) {
+      // If this package has boat sizes, render them and keep current boat idx
+      if (d.hasBoats && opt.boats) {
+        renderBoats(opt);
+        if (currentBoatIdx >= opt.boats.length) currentBoatIdx = 0;
+        selectBoat(currentBoatIdx);
+      } else if (modalPax) {
         modalPax.max = '8';
       }
     }
@@ -2562,10 +2931,18 @@
         btn.type = 'button';
         btn.className = 'opt-btn';
         btn.setAttribute('data-opt', String(i));
+        // For boat-tier packages, show currently-selected boat's price; else fall back to opt.price
+        var displayPrice = '';
+        if (d.hasBoats && opt.boats) {
+          var b = opt.boats[currentBoatIdx] || opt.boats[0];
+          displayPrice = b.price;
+        } else if (opt.price) {
+          displayPrice = opt.price;
+        }
         btn.innerHTML =
           '<span class="opt-dur">' + opt.label + '</span>' +
           '<span class="opt-name">' + opt.subtitle + '</span>' +
-          '<span class="opt-price">' + opt.price + '</span>';
+          '<span class="opt-price">' + displayPrice + '</span>';
         btn.addEventListener('click', function () { selectOption(i); });
         modalOptions.appendChild(btn);
       });
@@ -2576,6 +2953,7 @@
       if (!d) return;
       currentPkg = key;
       currentOptIdx = typeof optIdx === 'number' ? optIdx : 0;
+      currentBoatIdx = 0; // reset to smallest boat by default
 
       if (d.isMulti) {
         // Combined-tour modal: title fixed, options selectable
@@ -2583,12 +2961,21 @@
         modalOptions.hidden = false;
         modalOptions.style.display = 'grid';
         renderOptions(d);
+        // Show or hide boat selector
+        if (d.hasBoats) {
+          boatRow.hidden = false;
+        } else {
+          boatRow.hidden = true;
+          boatPills.innerHTML = '';
+        }
         selectOption(currentOptIdx);
       } else {
         // Single-tour modal (default behaviour)
         modalOptions.hidden = true;
         modalOptions.style.display = 'none';
         modalOptions.innerHTML = '';
+        boatRow.hidden = true;
+        boatPills.innerHTML = '';
         modalTitle.textContent = d.title;
         modalMeta.textContent = d.meta;
         fillList(modalIncludes, d.includes);
@@ -2601,8 +2988,8 @@
         t.setDate(t.getDate() + 1);
         modalDate.value = t.toISOString().slice(0, 10);
       }
-      // Pax max — fishing has different max
-      if (modalPax) {
+      // Pax max — boat-tier packages set their own; otherwise fishing=4, default=8
+      if (modalPax && !d.hasBoats) {
         modalPax.max = key === 'fishing' ? '4' : '8';
         var v = parseInt(modalPax.value, 10);
         var m = parseInt(modalPax.max, 10);
@@ -2620,6 +3007,7 @@
       document.body.style.overflow = '';
       currentPkg = null;
       currentOptIdx = 0;
+      currentBoatIdx = 0;
     }
 
     function buildWa() {
@@ -2629,7 +3017,13 @@
       if (d.isMulti) {
         var opt = d.options[currentOptIdx];
         title = d.title + ' — ' + opt.label + ' (' + opt.subtitle + ')';
-        price = opt.price;
+        if (d.hasBoats && opt.boats) {
+          var b = opt.boats[currentBoatIdx];
+          title += ' · ' + b.label + ' boat';
+          price = b.price;
+        } else {
+          price = opt.price;
+        }
       } else {
         title = d.title;
         price = d.price;
@@ -2839,24 +3233,29 @@
       });
     }
 
-    // Mobile nav toggle (simple — links scroll, header hides menu)
+    // Mobile nav drawer
     var navToggle = document.getElementById('nav-toggle');
-    if (navToggle) {
+    var mobileMenu = document.getElementById('mobile-menu');
+    function setMenu(open) {
+      if (!navToggle || !mobileMenu) return;
+      navToggle.classList.toggle('is-open', open);
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      mobileMenu.classList.toggle('is-open', open);
+      mobileMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+    if (navToggle && mobileMenu) {
       navToggle.addEventListener('click', function () {
-        var nav = document.querySelector('.nav');
-        if (!nav) return;
-        var open = nav.style.display === 'flex';
-        nav.style.display = open ? '' : 'flex';
-        nav.style.position = 'absolute';
-        nav.style.top = '70px';
-        nav.style.right = '20px';
-        nav.style.flexDirection = 'column';
-        nav.style.background = '#fff';
-        nav.style.padding = '20px 26px';
-        nav.style.borderRadius = '16px';
-        nav.style.boxShadow = '0 18px 50px rgba(15,23,42,0.18)';
-        nav.style.gap = '14px';
-        if (open) nav.removeAttribute('style');
+        setMenu(!mobileMenu.classList.contains('is-open'));
+      });
+      // Close drawer when any link inside is tapped
+      mobileMenu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () { setMenu(false); });
+      });
+      // Close on Escape
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) setMenu(false);
       });
     }
   })();
