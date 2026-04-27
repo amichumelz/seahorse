@@ -1968,6 +1968,7 @@
               <option value="mangrove-tours:0">Mangrove · 2h cruise (from RM300)</option>
               <option value="mangrove-tours:1">Mangrove · 3h full (from RM350)</option>
               <option value="mangrove-tours:2">Mangrove · 4h + snorkel (from RM400)</option>
+              <option value="mangrove-tours:3">Mangrove · Kayaking 4h (RM180/pax)</option>
               <option value="island">Island hopping (RM370)</option>
               <option value="snorkel-tours:0">Snorkeling · 2h (RM250)</option>
               <option value="snorkel-tours:1">Snorkeling · 4h (RM500)</option>
@@ -2072,11 +2073,11 @@
           </div>
           <div class="tour-info">
             <div>
-              <span class="tour-pill">3 options · flagship</span>
+              <span class="tour-pill">4 options · flagship</span>
               <h3 class="tour-name">Mangrove Tours</h3>
               <span class="tour-meta">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-                2h / 3h / 4h · from RM300
+                2h / 3h / 4h / kayaking · from RM180
               </span>
             </div>
             <span class="tour-arrow" aria-hidden="true">
@@ -2521,8 +2522,8 @@
         <p class="credentials-title">Seahorse Team Ventures</p>
         <p class="credentials-text">
           Suruhanjaya Syarikat Malaysia (SSM) registered business ·
-          <strong>Reg. No. XXXXXXXX-X</strong> ·
-          Operating from Tanjung Rhu jetty, Langkawi.
+          <strong>Reg. No. 202303011729 (003459385-K)</strong> ·
+          Operating from Tanjung Rhu jetty, Langkawi. Valid until 21 September 2026.
         </p>
       </div>
       <div class="credentials-badges">
@@ -2571,7 +2572,7 @@
         </ul>
       </div>
     </div>
-    <p class="footer-copy">© <span id="y"></span> Seahorse Team Ventures (SSM Reg. No. XXXXXXXX-X) · Departing from Tanjung Rhu</p>
+    <p class="footer-copy">© <span id="y"></span> Seahorse Team Ventures (SSM Reg. No. 202303011729 · 003459385-K) · Departing from Tanjung Rhu</p>
   </footer>
 
   <a class="fab" href="https://www.wasap.my/60175145423mangrove_murah" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
@@ -2785,6 +2786,14 @@
             ],
             includes: ['Mangrove cruise', 'Eagle feeding', 'Monkey feeding', 'Crocodile cave', 'Bat cave', 'Kilim Geopark island', 'Andaman sea', 'Fish farm', 'Coral fish feeding', 'Dangli island', 'Big bat watching', 'Swimming', 'Floating restaurant', 'Snorkeling', 'Starting from Tanjung Rhu'],
             excludes: ['Extra rentals unless discussed', 'Hotel transfers unless stated', 'Travel insurance']
+          },
+          {
+            label: 'Kayaking 4h',
+            subtitle: 'Mangrove kayaking — paddle through the forest',
+            meta: '4h · RM180 / pax · guide, kayak & water included',
+            price: 'RM180 / pax',
+            includes: ['Professional guide', 'Kayak & paddle', 'Drinking water', 'Mangrove river route', 'Wildlife spotting'],
+            excludes: ['Hotel pickup unless arranged', 'Meals', 'Personal insurance']
           }
         ]
       },
@@ -2914,13 +2923,16 @@
       modalMeta.textContent = opt.meta;
       fillList(modalIncludes, opt.includes);
       fillList(modalExcludes, opt.excludes);
-      // If this package has boat sizes, render them and keep current boat idx
+      // If this option has boat sizes, show the boat selector; otherwise hide it
       if (d.hasBoats && opt.boats) {
+        boatRow.hidden = false;
         renderBoats(opt);
         if (currentBoatIdx >= opt.boats.length) currentBoatIdx = 0;
         selectBoat(currentBoatIdx);
-      } else if (modalPax) {
-        modalPax.max = '8';
+      } else {
+        boatRow.hidden = true;
+        boatPills.innerHTML = '';
+        if (modalPax) modalPax.max = '8';
       }
     }
 
