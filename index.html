@@ -3920,10 +3920,6 @@
         ? '<figure class="rev-figure"><img src="' + d.imageUrl + '" loading="lazy" alt="Photo from ' + (d.name || 'guest') + '\'s review" /></figure>'
         : '';
       art.innerHTML =
-        '<span class="rev-new-badge">' +
-          '<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4 20-7z"/></svg>' +
-          ' Guest review' +
-        '</span>' +
         '<div class="rev-head">' +
           '<div class="rev-avatar" style="' + avatarStyle(d.name || 'A') + '" aria-hidden="true">' + initials(d.name || 'Anon') + '</div>' +
           '<div>' +
